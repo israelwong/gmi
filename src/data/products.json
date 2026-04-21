@@ -1,0 +1,114 @@
+[
+  {
+    "id": "gmi-edf-001",
+    "name": "Estructura metálica para nave industrial",
+    "category": "Edificación",
+    "description": "Sistema porticado con cerchas y arriostramiento calculado para cargas de grúa y viento regional. Incluye paquete de uniones y especificaciones de tornillería.",
+    "sku": "GMI-EDF-SS-2408",
+    "image_url": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=85"
+  },
+  {
+    "id": "gmi-edf-002",
+    "name": "Cubiertas y lamina técnica",
+    "category": "Edificación",
+    "description": "Solución de cubierta con acabado reflectivo, fijación oculta y sellos para condensación. Compatible con lucernarios y extractores.",
+    "sku": "GMI-EDF-CV-1124",
+    "image_url": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=85"
+  },
+  {
+    "id": "gmi-alm-001",
+    "name": "Rack selectivo pesado",
+    "category": "Almacenamiento",
+    "description": "Estantería selectiva para pallets estándar, protectores de columnas y niveladores. Diseñado para pasillos angostos y picking eficiente.",
+    "sku": "GMI-ALM-RK-8842",
+    "image_url": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=85"
+  },
+  {
+    "id": "gmi-alm-002",
+    "name": "Mezzanine de almacenaje",
+    "category": "Almacenamiento",
+    "description": "Plataforma intermedia con escaleras, barandales y malla de seguridad. Incrementa metros cuadrados útiles sin ampliar la huella.",
+    "sku": "GMI-ALM-MZ-3301",
+    "image_url": "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=85"
+  },
+  {
+    "id": "gmi-mod-001",
+    "name": "Módulo de oficina en planta",
+    "category": "Modular",
+    "description": "Caseta modular acústica para supervisión de línea, con instalaciones eléctricas y climatización lista para conectar.",
+    "sku": "GMI-MOD-OF-5010",
+    "image_url": "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1600&q=85"
+  },
+  {
+    "id": "gmi-mod-002",
+    "name": "Contenedor adaptado logístico",
+    "category": "Modular",
+    "description": "Contenedor high-cube acondicionado para bodega móvil o punto de transferencia, con puertas laterales y anclajes certificados.",
+    "sku": "GMI-MOD-CN-7720",
+    "image_url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=85"
+  },
+  {
+    "id": "gmi-edf-003",
+    "name": "Marcos de acero galvanizado",
+    "category": "Edificación",
+    "description": "Perfiles y marcos para cerramientos industriales con tratamiento anticorrosivo y perforaciones según plano.",
+    "sku": "GMI-EDF-MF-4402",
+    "image_url": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=85"
+  },
+  {
+    "id": "gmi-edf-004",
+    "name": "Refuerzos y cartelas estructurales",
+    "category": "Edificación",
+    "description": "Placas de refuerzo y cartelas soldables para conexiones sometidas a cortante y momento.",
+    "sku": "GMI-EDF-RF-2209",
+    "image_url": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1600&q=85"
+  },
+  {
+    "id": "gmi-alm-003",
+    "name": "Estantería drive-in compacta",
+    "category": "Almacenamiento",
+    "description": "Sistema drive-in para alta densidad de pallets homogéneos; rieles guía y topes de seguridad.",
+    "sku": "GMI-ALM-DI-5518",
+    "image_url": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1600&q=85"
+  },
+  {
+    "id": "gmi-alm-004",
+    "name": "Sistema push-back rodillos",
+    "category": "Almacenamiento",
+    "description": "Carros telescópicos para almacenamiento LIFO en profundidad con carril inclinado.",
+    "sku": "GMI-ALM-PB-9031",
+    "image_url": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=85"
+  },
+  {
+    "id": "gmi-mod-003",
+    "name": "Módulo sanitario de obra",
+    "category": "Modular",
+    "description": "Unidad prefabricada con instalación hidrosanitaria para personal en campo o expansión temporal.",
+    "sku": "GMI-MOD-SA-6612",
+    "image_url": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=85"
+  },
+  {
+    "id": "gmi-mod-004",
+    "name": "Caseta de vigilancia perimetral",
+    "category": "Modular",
+    "description": "Caseta blindada o vidriada con punto de energía y datos para seguridad física y CCTV.",
+    "sku": "GMI-MOD-VG-7788",
+    "image_url": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=85"
+  },
+  {
+    "id": "gmi-edf-005",
+    "name": "Escaleras de servicio metálicas",
+    "category": "Edificación",
+    "description": "Escaleras tipo gato o rectas con barandales normalizados y peldaños antiderrapantes.",
+    "sku": "GMI-EDF-ES-3314",
+    "image_url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=85"
+  },
+  {
+    "id": "gmi-alm-005",
+    "name": "Cajas picking carton flow",
+    "category": "Almacenamiento",
+    "description": "Módulos carton flow para preparación de pedidos ligeros con ajuste de rodillos por ancho de caja.",
+    "sku": "GMI-ALM-CF-4420",
+    "image_url": "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=85"
+  }
+]

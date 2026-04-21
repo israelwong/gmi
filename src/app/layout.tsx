@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 
 import { SiteShell } from "@/components/layout/site-shell";
 
@@ -8,6 +8,12 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
@@ -26,7 +32,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es-MX" className={`${inter.variable} h-full`}>
+    <html
+      lang="es-MX"
+      className={`${inter.variable} ${jetbrainsMono.variable} h-full`}
+    >
       <body className="flex min-h-full flex-col font-sans">
         <SiteShell>{children}</SiteShell>
       </body>

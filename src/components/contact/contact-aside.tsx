@@ -2,9 +2,11 @@ import { Mail, MapPin, Phone, Share2 } from "lucide-react";
 
 export function ContactAside() {
   return (
-    <aside className="space-y-8 rounded-lg border border-border bg-muted/40 p-8 shadow-sm">
+    <aside className="space-y-8 rounded-xl border border-border bg-muted/50 p-6 shadow-sm ring-1 ring-border/40 sm:p-8 md:sticky md:top-24">
       <div>
-        <h2 className="text-lg font-semibold text-foreground">Oficina central</h2>
+        <h2 className="text-lg font-semibold tracking-tight text-foreground">
+          Oficina central
+        </h2>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
           Atención de lunes a viernes, 9:00 a 18:00 (hora del centro).
         </p>
