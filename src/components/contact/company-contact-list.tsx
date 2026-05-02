@@ -7,8 +7,8 @@ type CompanyContactListProps = {
   /** Íconos y tipografía más densos para el footer. */
   compact?: boolean;
   /**
-   * En el pie solo se muestra el teléfono de oficina; WhatsApp y líneas por
-   * persona siguen disponibles en /contacto.
+   * Lista resumida de teléfonos: solo oficina (sin WhatsApp ni líneas por persona).
+   * Se usa en pie y en el panel de /contacto.
    */
   footerResumen?: boolean;
 };

@@ -1,9 +1,6 @@
 import { Clock } from "lucide-react";
 
-import {
-  CompanyContactEmails,
-  CompanyContactPhones,
-} from "@/components/contact/company-contact-list";
+import { CompanyContactPhones } from "@/components/contact/company-contact-list";
 import { companyInfo } from "@/lib/company-data";
 
 export function ContactAside() {
@@ -35,8 +32,7 @@ export function ContactAside() {
         </div>
       </div>
       <div>
-        <CompanyContactPhones />
-        <CompanyContactEmails />
+        <CompanyContactPhones footerResumen />
       </div>
       <div className="aspect-video overflow-hidden rounded-md border border-border bg-background">
         <iframe
