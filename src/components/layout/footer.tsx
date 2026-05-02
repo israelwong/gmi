@@ -15,8 +15,8 @@ export function Footer() {
               Grupo GMI
             </p>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Soluciones de ingeniería, sistemas modulares y logística industrial
-              con estándares de calidad y un ADN mexicano enfocado en resultados.
+              Maquinados de precisión, torno CNC y metrología para industrias que
+              requieren tolerancias ajustadas y confidencialidad de proyecto.
             </p>
           </div>
 

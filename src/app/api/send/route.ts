@@ -60,12 +60,12 @@ export async function POST(request: Request) {
     : "";
 
   const html = `
-    <h1>Nuevo lead — Grupo GMI</h1>
+    <h1>Cotización de proyecto especial — Grupo GMI</h1>
     <p><strong>Nombre:</strong> ${escapeHtml(data.nombre)}</p>
     <p><strong>Correo:</strong> ${escapeHtml(data.email)}</p>
     ${telefonoLine}
     <p><strong>Empresa / proyecto:</strong> ${escapeHtml(data.empresa)}</p>
-    <p><strong>Mensaje:</strong></p>
+    <p><strong>Alcance del proyecto:</strong></p>
     <p>${escapeHtml(data.mensaje).replace(/\n/g, "<br/>")}</p>
     <hr />
     <p style="font-size:12px;color:#64748b">Enviado desde el formulario web.</p>
@@ -75,7 +75,7 @@ export async function POST(request: Request) {
     from,
     to: [to],
     replyTo: data.email,
-    subject: `[Lead] ${data.nombre} — ${data.empresa}`,
+    subject: `[Cotización proyecto] ${data.nombre} — ${data.empresa}`,
     html,
   });
 

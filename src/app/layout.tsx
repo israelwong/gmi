@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Grupo GMI",
   },
   description:
-    "Grupo GMI: ingeniería, sistemas modulares, almacenamiento y logística industrial con ADN mexicano.",
+    "Grupo GMI: maquinados industriales de precisión, parque HAAS y Doosan, y proyectos bajo confidencialidad desde 1985.",
 };
 
 export default function RootLayout({

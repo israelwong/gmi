@@ -1,47 +1,52 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&w=2400&q=80";
+const HERO_COPY = {
+  line:
+    "Ingeniería de precisión en Maquinados Industriales. Soluciones a medida desde 1985.",
+};
 
 export function Hero() {
   return (
     <section className="relative isolate flex min-h-[88vh] items-center overflow-hidden border-b border-border">
-      <Image
-        src={HERO_IMAGE}
-        alt="Operaciones industriales y logística portuaria"
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
-      />
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden
+        poster="https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1920&q=80"
+      >
+        <source src="/videos/hero-industrial.mp4" type="video/mp4" />
+      </video>
       <div
-        className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/55 to-primary/25"
+        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/55 to-black/40"
         aria-hidden
       />
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-        <div className="max-w-3xl space-y-8 text-primary-foreground">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary-foreground/90">
-            Ingeniería · México · Alto impacto
+        <div className="max-w-3xl space-y-8 text-white">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/85">
+            Capacidades industriales · Confidencialidad
           </p>
           <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
-            Soluciones industriales que mueven a México
+            {HERO_COPY.line}
           </h1>
-          <p className="max-w-2xl text-pretty text-lg leading-relaxed text-primary-foreground/90">
-            Diseño de ingeniería, sistemas modulares y cadena logística con
-            precisión técnica, seguridad y un ADN mexicano orientado a resultados.
+          <p className="max-w-2xl text-pretty text-lg leading-relaxed text-white/90">
+            Parque HAAS, Doosan y equipamiento complementario para proyectos que
+            requieren tolerancias ajustadas, lotes recurrentes y discreción
+            operativa.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <Button
               asChild
               size="lg"
-              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+              className="bg-white text-primary hover:bg-white/90"
             >
-              <Link href="/servicios">
-                Ver servicios
+              <Link href="/tecnologia">
+                Ver tecnología
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
@@ -49,9 +54,9 @@ export function Hero() {
               asChild
               size="lg"
               variant="outline"
-              className="border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+              className="border-white/50 bg-transparent text-white hover:bg-white/10 hover:text-white"
             >
-              <Link href="/contacto">Hablar con un especialista</Link>
+              <Link href="/contacto">Solicitar cotización de proyecto</Link>
             </Button>
           </div>
         </div>

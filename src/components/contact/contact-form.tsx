@@ -60,7 +60,8 @@ export function ContactForm() {
       reset();
       setFeedback({
         type: "ok",
-        message: "Solicitud enviada. Nos pondremos en contacto pronto.",
+        message:
+          "Cotización recibida. Un especialista se pondrá en contacto pronto.",
       });
     } catch {
       setFeedback({
@@ -75,7 +76,7 @@ export function ContactForm() {
       className="space-y-5"
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      aria-label="Formulario de contacto"
+      aria-label="Solicitar cotización de proyecto especial"
     >
       {feedback && (
         <div
@@ -157,11 +158,12 @@ export function ContactForm() {
 
       <div className="grid gap-2">
         <label htmlFor="mensaje" className="text-sm font-medium text-foreground">
-          Mensaje
+          Alcance del proyecto
         </label>
         <Textarea
           id="mensaje"
           rows={5}
+          placeholder="Pieza, material, cantidades, tolerancias, NDA si aplica…"
           aria-invalid={errors.mensaje ? "true" : "false"}
           {...register("mensaje")}
         />
@@ -171,7 +173,7 @@ export function ContactForm() {
       </div>
 
       <Button type="submit" className="w-full sm:w-auto" disabled={isSubmitting}>
-        {isSubmitting ? "Enviando…" : "Enviar solicitud"}
+        {isSubmitting ? "Enviando…" : "Enviar solicitud de cotización"}
       </Button>
 
       <p className="text-xs text-muted-foreground">

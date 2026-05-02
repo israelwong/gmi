@@ -1,0 +1,218 @@
+{
+  "historia": {
+    "origen": "Taller Salinas",
+    "anioFundacion": 1985,
+    "fundador": "Alfonso Salinas López",
+    "anioConsolidacion": 1998,
+    "nombreConsolidado": "GMI",
+    "resumen": "Fundada en 1985 como Taller Salinas por Alfonso Salinas López. Consolidada en 1998 como GMI.",
+    "narrativa": [
+      "Desde 1985 forjamos capacidad industrial en maquinados de precisión: del taller especializado al estándar GMI, con procesos controlados y confidencialidad de proyecto.",
+      "La consolidación en 1998 como GMI unificó parque de máquinas, ingeniería de proceso y atención a industrias reguladas que exigen trazabilidad y discreción."
+    ]
+  },
+  "confidencialidad": {
+    "titulo": "Confidencialidad y proyectos especiales",
+    "texto": "Trabajamos bajo acuerdos de confidencialidad con clientes en dispositivos médicos, automotriz y bienes de consumo. Los planos, tolerancias y rutas de mecanizado se manejan con control de acceso y comunicación directa con ingeniería."
+  },
+  "capacidades": [
+    {
+      "id": "cnc",
+      "titulo": "Maquinado CNC",
+      "descripcion": "Centros verticales y fresado de precisión con herramientas indexadas y altas RPM para series exigentes.",
+      "detalle": "HAAS VF · Doosan DNM · Bridgeport"
+    },
+    {
+      "id": "torneado",
+      "titulo": "Torneado de precisión",
+      "descripcion": "Torno CNC multieje y tornos paralelos para ejes, bujes y conjuntos con acabado controlado.",
+      "detalle": "HAAS ST · Tornos paralelos"
+    },
+    {
+      "id": "metrologia",
+      "titulo": "Metrología",
+      "descripcion": "Verificación dimensional alineada a especificaciones de cliente y normas de calidad.",
+      "detalle": "Inspección dimensional · trazabilidad",
+      "image_url": "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1200&q=85"
+    }
+  ],
+  "maquinaria": [
+    {
+      "id": "haas-vf-3",
+      "grupoCapacidad": "cnc",
+      "categoria": "Centro de mecanizado vertical",
+      "fabricante": "HAAS",
+      "modelo": "VF-3",
+      "cantidad": 1,
+      "image_url": "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1200&q=85",
+      "especificaciones": {
+        "husillo_rpm": "12 000",
+        "herramientas": "30 + 1 estación",
+        "recorrido_xyz_mm": "1016 × 508 × 635",
+        "control": "Haas CNC"
+      }
+    },
+    {
+      "id": "haas-vf-5",
+      "grupoCapacidad": "cnc",
+      "categoria": "Centro de mecanizado vertical",
+      "fabricante": "HAAS",
+      "modelo": "VF-5",
+      "cantidad": 1,
+      "image_url": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=85",
+      "especificaciones": {
+        "husillo_rpm": "12 000",
+        "herramientas": "30 + 1 estación",
+        "recorrido_xyz_mm": "1270 × 508 × 635",
+        "control": "Haas CNC"
+      }
+    },
+    {
+      "id": "doosan-dnm-500",
+      "grupoCapacidad": "cnc",
+      "categoria": "Centro vertical",
+      "fabricante": "Doosan",
+      "modelo": "DNM 500",
+      "cantidad": 1,
+      "image_url": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=85",
+      "especificaciones": {
+        "husillo_rpm": "12 000",
+        "herramientas": "30",
+        "recorrido_xyz_mm": "1050 × 570 × 510",
+        "control": "Fanuc / Doosan"
+      }
+    },
+    {
+      "id": "doosan-dnm-400",
+      "grupoCapacidad": "cnc",
+      "categoria": "Centro vertical",
+      "fabricante": "Doosan",
+      "modelo": "DNM 400",
+      "cantidad": 1,
+      "image_url": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=85",
+      "especificaciones": {
+        "husillo_rpm": "12 000",
+        "herramientas": "30",
+        "recorrido_xyz_mm": "762 × 440 × 510",
+        "control": "Fanuc / Doosan"
+      }
+    },
+    {
+      "id": "doosan-dnm-750",
+      "grupoCapacidad": "cnc",
+      "categoria": "Centro vertical",
+      "fabricante": "Doosan",
+      "modelo": "DNM 750",
+      "cantidad": 1,
+      "image_url": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=85",
+      "especificaciones": {
+        "husillo_rpm": "12 000",
+        "herramientas": "40",
+        "recorrido_xyz_mm": "1530 × 670 × 625",
+        "control": "Fanuc / Doosan"
+      }
+    },
+    {
+      "id": "haas-st-1",
+      "grupoCapacidad": "torneado",
+      "categoria": "Torno CNC",
+      "fabricante": "HAAS",
+      "modelo": "ST-1",
+      "cantidad": 1,
+      "image_url": "https://images.unsplash.com/photo-1565967511749-5f3366028b92?auto=format&fit=crop&w=1200&q=85",
+      "especificaciones": {
+        "husillo_rpm": "4 000",
+        "herramientas": "12 posiciones torreta",
+        "recorrido_xyz_mm": "Ø máx. pieza / largo según plato",
+        "control": "Haas CNC"
+      }
+    },
+    {
+      "id": "haas-st-10y",
+      "grupoCapacidad": "torneado",
+      "categoria": "Torno CNC con eje Y",
+      "fabricante": "HAAS",
+      "modelo": "ST-10Y",
+      "cantidad": 1,
+      "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=85",
+      "especificaciones": {
+        "husillo_rpm": "4 000",
+        "herramientas": "12 + contrapunto motorizado (según config.)",
+        "recorrido_xyz_mm": "Eje Y · mecanizado off-center",
+        "control": "Haas CNC"
+      }
+    },
+    {
+      "id": "bridgeport-fresadoras",
+      "grupoCapacidad": "cnc",
+      "categoria": "Fresadora convencional",
+      "fabricante": "Bridgeport",
+      "modelo": "Serie estándar",
+      "cantidad": 5,
+      "image_url": "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=1200&q=85",
+      "especificaciones": {
+        "husillo_rpm": "Variable (correa)",
+        "herramientas": "Manual / DRO",
+        "recorrido_xyz_mm": "Según bancada individual",
+        "control": "Operación manual"
+      }
+    },
+    {
+      "id": "tornos-paralelos",
+      "grupoCapacidad": "torneado",
+      "categoria": "Torno paralelo",
+      "fabricante": "Varios",
+      "modelo": "Torno motor",
+      "cantidad": 6,
+      "image_url": "https://images.unsplash.com/photo-1618255688726-71a4c2d113df?auto=format&fit=crop&w=1200&q=85",
+      "especificaciones": {
+        "husillo_rpm": "Escalas por caja de velocidades",
+        "herramientas": "Torreta manual",
+        "recorrido_xyz_mm": "Entre puntos según bancada",
+        "control": "Manual"
+      }
+    },
+    {
+      "id": "rectificadoras",
+      "grupoCapacidad": "cnc",
+      "categoria": "Rectificado",
+      "fabricante": "Varios",
+      "modelo": "Superficie / cilíndrico",
+      "cantidad": 3,
+      "image_url": "https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?auto=format&fit=crop&w=1200&q=85",
+      "especificaciones": {
+        "husillo_rpm": "Muela según cabezal",
+        "herramientas": "Muelas certificadas",
+        "recorrido_xyz_mm": "Según modelo",
+        "control": "Manual / hidráulico"
+      }
+    }
+  ],
+  "clientes": [
+    {
+      "nombre": "Becton Dickinson",
+      "slug": "bd",
+      "logo": "/logos/bd.svg"
+    },
+    {
+      "nombre": "Continental",
+      "slug": "continental",
+      "logo": "/logos/continental.svg"
+    },
+    {
+      "nombre": "Aumovio",
+      "slug": "aumovio",
+      "logo": "/logos/aumovio.svg"
+    },
+    {
+      "nombre": "Alpura",
+      "slug": "alpura",
+      "logo": "/logos/alpura.svg"
+    },
+    {
+      "nombre": "American Axle",
+      "slug": "aam",
+      "logo": "/logos/aam.svg"
+    }
+  ]
+}
