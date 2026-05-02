@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Crosshair, Disc3, Ruler } from "lucide-react";
 
+import { companyInfo } from "@/lib/company-data";
 import { cn } from "@/lib/utils";
 
 const ICONS = {
@@ -45,8 +46,12 @@ export function CapabilitiesBento({ capacidades }: CapabilitiesBentoProps) {
           Precisión en cada eje
         </h2>
         <p className="mt-4 text-pretty text-muted-foreground">
-          Tres pilares que resumen nuestro taller: mecanizado CNC, torneado y
-          control dimensional para entregas repetibles.
+          {companyInfo.manufactura.especialidad}{" "}
+          <span className="font-medium text-foreground/85">
+            Sectores: {companyInfo.manufactura.sectoresExperiencia}
+          </span>
+          . Tres líneas recurrentes que apoyamos en planta: mecanizado CNC,
+          torneado y verificación dimensional.
         </p>
       </div>
 
@@ -70,9 +75,11 @@ export function CapabilitiesBento({ capacidades }: CapabilitiesBentoProps) {
               <p className="mt-3 flex-1 text-pretty text-sm leading-relaxed text-muted-foreground">
                 {cap.descripcion}
               </p>
-              <p className="mt-4 font-mono text-xs text-primary/90">{cap.detalle}</p>
+              <p className="mt-4 font-mono text-xs font-medium text-primary">
+                {cap.detalle}
+              </p>
               {link && (
-                <span className="mt-5 inline-flex text-sm font-medium text-primary underline-offset-4 group-hover:underline">
+                <span className="mt-5 inline-flex text-sm font-semibold text-primary underline-offset-4 group-hover:underline">
                   {link.label}
                 </span>
               )}

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (.dark &);
+
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo,
@@ -31,6 +33,31 @@
   --radius-lg: 0.75rem;
 }
 
+/* Modo oscuro: zen / azul nocturno (primario institucional más oscuro que el sky-500 claro) */
+.dark {
+  --color-background: #070b14;
+  --color-foreground: #e8edf6;
+
+  /* Azul más luminoso sobre cards oscuras (capacidades, enlaces, iconos) */
+  --color-primary: #5ca6f7;
+  --color-primary-foreground: #fafcff;
+
+  --color-accent: #7eb4f0;
+  --color-accent-foreground: #0c121c;
+
+  --color-muted: #161f30;
+  --color-muted-foreground: #a5b3cc;
+
+  --color-border: #243044;
+  --color-input: #2a3950;
+
+  /* Un poco más claro que el fondo (#070b14) para que las cards se lean y no “se trague” el texto */
+  --color-card: #161e32;
+  --color-card-foreground: #eef2fb;
+
+  --color-ring: #6eb4fa;
+}
+
 body {
   @apply bg-background text-foreground antialiased;
 }
@@ -57,5 +84,29 @@ body {
       transparent 14px,
       rgba(0, 74, 153, 0.035) 14px,
       rgba(0, 74, 153, 0.035) 15px
+    );
+}
+
+.dark .engineering-surface {
+  background-color: #050814;
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(7, 11, 20, 0.97) 0%,
+      rgba(10, 16, 28, 0.94) 100%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 11px,
+      rgba(100, 116, 148, 0.055) 11px,
+      rgba(100, 116, 148, 0.055) 12px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 14px,
+      rgba(30, 74, 130, 0.06) 14px,
+      rgba(30, 74, 130, 0.06) 15px
     );
 }

@@ -67,7 +67,7 @@ export function ScrollToTop() {
               : { type: "spring", stiffness: 420, damping: 32, mass: 0.85 }
           }
           onClick={scrollTop}
-          className="fixed bottom-6 right-6 z-[60] flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-200/70 bg-gradient-to-br from-sky-50 via-white to-cyan-50/90 text-primary shadow-lg shadow-sky-400/20 outline-none backdrop-blur-md transition-shadow hover:shadow-xl hover:shadow-sky-400/25 focus-visible:ring-2 focus-visible:ring-sky-400/50 focus-visible:ring-offset-2"
+          className="fixed bottom-6 right-6 z-[60] flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-200/70 bg-gradient-to-br from-sky-50 via-white to-cyan-50/90 text-primary shadow-lg shadow-sky-400/20 outline-none backdrop-blur-md transition-shadow hover:shadow-xl hover:shadow-sky-400/25 focus-visible:ring-2 focus-visible:ring-sky-400/50 focus-visible:ring-offset-2 dark:border-border dark:bg-card dark:shadow-lg dark:shadow-black/35 dark:hover:shadow-xl dark:hover:shadow-black/45 dark:focus-visible:ring-ring/60 dark:focus-visible:ring-offset-background"
           aria-label="Volver arriba"
         >
           <ArrowUp className="h-5 w-5" strokeWidth={2.25} aria-hidden />

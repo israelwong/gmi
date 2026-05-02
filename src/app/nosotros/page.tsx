@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Building2, History, Users } from "lucide-react";
+import { Building2, History, Target, Telescope, Users } from "lucide-react";
 
 import { SectionLayout } from "@/components/layout/section-layout";
 import {
@@ -14,24 +14,23 @@ import { companyInfo } from "@/lib/company-data";
 export const metadata: Metadata = {
   title: "Nosotros",
   description:
-    "Historia de GMI: de Taller Salinas (1985) a capacidades de maquinado industrial con confidencialidad de proyecto.",
+    "Perfil corporativo Generado de Maquinados Industriales (GMI): trayectoria, misión y visión desde Taller Salinas (1985).",
 };
 
 const HITOS = [
   {
     title: "1985 — Origen",
-    description: `${companyInfo.historia.origen}, fundado por ${companyInfo.historia.fundador}.`,
+    description: `"${companyInfo.historia.origen}", fundado por ${companyInfo.historia.fundador}.`,
     icon: History,
   },
   {
     title: `1998 — ${companyInfo.historia.nombreConsolidado}`,
-    description: `Consolidación como ${companyInfo.historia.nombreConsolidado}: procesos unificados y parque de máquinas orientado a precisión.`,
+    description: `Consolidación como ${companyInfo.identidad.nombreOficial}: operación industrial con parque tecnológico y enfoque en manufactura de refacciones, fixtures y gages.`,
     icon: Building2,
   },
   {
     title: "Hoy",
-    description:
-      "Atención a industrias reguladas con acuerdos de confidencialidad, ingeniería de proceso y lotes repetibles.",
+    description: companyInfo.manufactura.especialidad,
     icon: Users,
   },
 ] as const;
@@ -40,7 +39,7 @@ export default function NosotrosPage() {
   return (
     <SectionLayout
       eyebrow="Trayectoria"
-      title="Nosotros"
+      title={companyInfo.identidad.nombreOficial}
       subtitle={companyInfo.historia.resumen}
       contentClassName="max-w-5xl"
     >
@@ -50,6 +49,35 @@ export default function NosotrosPage() {
             {p}
           </p>
         ))}
+      </div>
+
+      <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <Card className="border-border/80">
+          <CardHeader className="flex flex-row items-start gap-4 space-y-0">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-border bg-muted text-primary">
+              <Target className="h-5 w-5" aria-hidden />
+            </div>
+            <div>
+              <CardTitle className="text-base">Misión</CardTitle>
+              <CardDescription className="mt-2 text-sm leading-relaxed">
+                {companyInfo.historia.mision}
+              </CardDescription>
+            </div>
+          </CardHeader>
+        </Card>
+        <Card className="border-border/80">
+          <CardHeader className="flex flex-row items-start gap-4 space-y-0">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-border bg-muted text-primary">
+              <Telescope className="h-5 w-5" aria-hidden />
+            </div>
+            <div>
+              <CardTitle className="text-base">Visión</CardTitle>
+              <CardDescription className="mt-2 text-sm leading-relaxed">
+                {companyInfo.historia.vision}
+              </CardDescription>
+            </div>
+          </CardHeader>
+        </Card>
       </div>
 
       <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -86,14 +114,11 @@ export default function NosotrosPage() {
 
       <div className="mt-14">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-          Referencias
+          Cartera referenciada de clientes
         </p>
         <ul className="mt-4 grid gap-2 sm:grid-cols-2">
           {companyInfo.clientes.map((c) => (
-            <li
-              key={c.slug}
-              className="font-mono text-sm text-foreground/90"
-            >
+            <li key={c.slug} className="font-mono text-sm text-foreground/90">
               — {c.nombre}
             </li>
           ))}

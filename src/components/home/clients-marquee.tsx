@@ -177,11 +177,11 @@ export function ClientsMarquee({ clientes }: ClientsMarqueeProps) {
 
   return (
     <section
-      className="border-b border-border py-10"
+      className="border-b border-border py-10 dark:bg-zinc-400 dark:border-b dark:border-zinc-500/50"
       aria-label="Clientes y sectores atendidos"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground dark:text-zinc-800">
           Industrias que confían en nuestra ingeniería
         </p>
         <p id="clients-marquee-hint" className="sr-only">
@@ -193,7 +193,7 @@ export function ClientsMarquee({ clientes }: ClientsMarqueeProps) {
         ref={viewportRef}
         aria-describedby="clients-marquee-hint"
         tabIndex={0}
-        className="mt-8 w-full cursor-grab touch-none overflow-x-hidden overflow-y-hidden outline-none active:cursor-grabbing focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 focus-visible:ring-offset-background select-none"
+        className="mt-8 w-full cursor-grab touch-none overflow-x-hidden overflow-y-hidden outline-none active:cursor-grabbing focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 focus-visible:ring-offset-background select-none dark:pb-2 dark:focus-visible:ring-zinc-800/55 dark:focus-visible:ring-offset-zinc-400"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
@@ -212,15 +212,24 @@ export function ClientsMarquee({ clientes }: ClientsMarqueeProps) {
               key={`${c.slug}-${i}`}
               className="group flex shrink-0 items-center justify-center px-12 sm:px-16"
             >
-              <div className="relative h-9 w-[200px] max-w-[200px] shrink-0">
-                <Image
-                  src={c.logo}
-                  alt={c.nombre}
-                  fill
-                  draggable={false}
-                  className="pointer-events-none object-contain object-center opacity-60 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
-                  sizes="200px"
-                />
+              {/* Cajón fijo 44×200px: mismo encuadre en logo SVG y en texto de respaldo. */}
+              <div className="relative h-11 w-[200px] max-w-[200px] shrink-0 px-3">
+                {c.logo?.trim() ? (
+                  <Image
+                    src={c.logo.trim()}
+                    alt={c.nombre}
+                    fill
+                    draggable={false}
+                    sizes="200px"
+                    className="pointer-events-none object-contain object-center px-1 py-0.5 opacity-60 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 dark:opacity-85 dark:contrast-[1.06] dark:group-hover:contrast-100"
+                  />
+                ) : (
+                  <span className="absolute inset-x-3 inset-y-0 flex items-center justify-center text-center">
+                    <span className="line-clamp-2 max-h-full text-[10px] font-semibold uppercase leading-snug tracking-wide text-foreground/80 transition-colors duration-300 group-hover:text-primary dark:text-zinc-800 sm:text-[11px]">
+                      {c.nombre}
+                    </span>
+                  </span>
+                )}
               </div>
             </div>
           ))}

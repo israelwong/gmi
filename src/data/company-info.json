@@ -1,39 +1,111 @@
 {
+  "identidad": {
+    "nombreOficial": "Generado de Maquinados Industriales S.A. de C.V.",
+    "sigla": "GMI"
+  },
   "historia": {
     "origen": "Taller Salinas",
     "anioFundacion": 1985,
     "fundador": "Alfonso Salinas López",
     "anioConsolidacion": 1998,
     "nombreConsolidado": "GMI",
-    "resumen": "Fundada en 1985 como Taller Salinas por Alfonso Salinas López. Consolidada en 1998 como GMI.",
+    "resumen": "Desde 1985 como Taller Salinas hasta la consolidación en 1998 como Generado de Maquinados Industriales (GMI), S.A. de C.V.: manufactura de refacciones, fixtures y gages con procesos reproducibles.",
     "narrativa": [
-      "Desde 1985 forjamos capacidad industrial en maquinados de precisión: del taller especializado al estándar GMI, con procesos controlados y confidencialidad de proyecto.",
-      "La consolidación en 1998 como GMI unificó parque de máquinas, ingeniería de proceso y atención a industrias reguladas que exigen trazabilidad y discreción."
+      "Generado de Maquinados Industriales S.A. de C.V. nace como Taller Salinas en 1985, cuando el Sr. Alfonso Salinas López inicia capacidad dedicada al maquinado de precisión. En 1998 la organización toma forma corporativa consolidada como GMI, integrando ingeniería, parque tecnológico y atención a sectores como automotriz, farmacéutico y alimenticio.",
+      "Nuestro trabajo se orienta a la manufactura industrial de piezas funcionales —refacciones, fixtures y gauges— combinando proceso en CNC, equipo convencional y metrología de control dimensional, con soporte CAD/CAM cuando el proyecto lo requiere."
+    ],
+    "mision": "Ofrecer productos de excelente manufactura cumpliendo con las expectativas del cliente, logrando la unión de personal capacitado tecnológicamente en áreas afines a las necesidades de la industria.",
+    "vision": "Consolidar el liderazgo en el mercado basado en tecnología de punta para la satisfacción del cliente."
+  },
+  "contacto": {
+    "domicilio": "Palmas S/N",
+    "municipioRegion": "Ecatepec, Estado de México",
+    "horario": "09:00 – 18:00 hrs.",
+    "cerradoFinSemana": true,
+    "telefonos": [
+      {
+        "etiqueta": "Oficina",
+        "numeroDisplay": "+52 55 5116 3772",
+        "href": "tel:+525551163772"
+      },
+      {
+        "etiqueta": "WhatsApp · Lilia Salinas",
+        "numeroDisplay": "+52 55 4607 1053",
+        "href": "https://wa.me/525546071053"
+      },
+      {
+        "etiqueta": "Marco Martínez",
+        "numeroDisplay": "+52 55 2585 0412",
+        "href": "tel:+525525850412"
+      }
+    ],
+    "correos": [
+      {
+        "direccion": "lsalinas@grupogmi.mx",
+        "titular": "Lilia Salinas"
+      },
+      {
+        "direccion": "mmartinez@grupogmi.mx",
+        "titular": "Marco Martínez"
+      }
+    ],
+    "sitioWeb": {
+      "etiqueta": "www.grupogmi.mx",
+      "href": "https://www.grupogmi.mx/"
+    }
+  },
+  "manufactura": {
+    "especialidad": "Manufactura de refacciones industriales, fixtures y gages.",
+    "sectoresExperiencia": "Automotriz, farmacéutico y alimenticio.",
+    "procesos": [
+      "Rectificado cilíndrico y plano",
+      "Tratamiento térmico",
+      "Pavonado",
+      "Sand blast / granallado",
+      "Anodizado (natural, negro y de color)"
+    ],
+    "materiales": [
+      {
+        "titulo": "Aceros inoxidables",
+        "detalle": "304, 316, 420, TX10T"
+      },
+      {
+        "titulo": "Metales aleados y herramental",
+        "detalle": "Duraluminio, cobre de berilio, H13, M2, D2, bronce"
+      },
+      {
+        "titulo": "Plásticos y compuestos",
+        "detalle": "PEEK, Nylamid, Celoron"
+      }
     ]
   },
+  "softwareCadCam": [
+    "Solid Edge",
+    "Master CAM",
+    "SurfCAM"
+  ],
   "confidencialidad": {
     "titulo": "Confidencialidad y proyectos especiales",
-    "texto": "Trabajamos bajo acuerdos de confidencialidad con clientes en dispositivos médicos, automotriz y bienes de consumo. Los planos, tolerancias y rutas de mecanizado se manejan con control de acceso y comunicación directa con ingeniería."
+    "texto": "Atendemos dispositivos médicos, líneas automotrices y otros sectores donde los planos, tolerancias y rutas de mecanizado requieren acuerdos de confidencialidad, control de acceso y comunicación directa con ingeniería."
   },
   "capacidades": [
     {
       "id": "cnc",
       "titulo": "Maquinado CNC",
-      "descripcion": "Centros verticales y fresado de precisión con herramientas indexadas y altas RPM para series exigentes.",
-      "detalle": "HAAS VF · Doosan DNM · Bridgeport"
+      "descripcion": "Centros verticales para piezas funcionales en series repetibles en contexto automotriz, farmacéutico y alimenticio.",
+      "detalle": "HAAS VF · Doosan DNM · Bridgeport convencional"
     },
     {
       "id": "torneado",
       "titulo": "Torneado de precisión",
-      "descripcion": "Torno CNC multieje y tornos paralelos para ejes, bujes y conjuntos con acabado controlado.",
-      "detalle": "HAAS ST · Tornos paralelos"
+      "descripcion": "Torno CNC y paralelos para ejes y conjuntos donde el acabado y la geometría son críticos en refacción y tooling.",
+      "detalle": "HAAS ST · Tornos paralelos (1000–3000 mm entre puntos)"
     },
     {
       "id": "metrologia",
-      "titulo": "Metrología",
-      "descripcion": "Verificación dimensional alineada a especificaciones de cliente y normas de calidad.",
-      "detalle": "Inspección dimensional · trazabilidad",
-      "image_url": "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1200&q=85"
+      "titulo": "Metrología y control dimensional",
+      "descripcion": "Verificación dimensional con equipo de alta resolución: mesa tridimensional tipo CMM y comparador óptico Mitutoyo; trazabilidad al especificación del cliente.",
+      "detalle": "CMM · Comparador óptico Mitutoyo · trazabilidad"
     }
   ],
   "maquinaria": [
@@ -44,13 +116,20 @@
       "fabricante": "HAAS",
       "modelo": "VF-3",
       "cantidad": 1,
-      "image_url": "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1200&q=85",
-      "especificaciones": {
-        "husillo_rpm": "12 000",
-        "herramientas": "30 + 1 estación",
-        "recorrido_xyz_mm": "1016 × 508 × 635",
-        "control": "Haas CNC"
-      }
+      "especificaciones": [
+        {
+          "etiqueta": "Herramientas",
+          "valor": "24 posiciones"
+        },
+        {
+          "etiqueta": "Husillo (RPM)",
+          "valor": "8 000"
+        },
+        {
+          "etiqueta": "Control",
+          "valor": "CNC HAAS"
+        }
+      ]
     },
     {
       "id": "haas-vf-5",
@@ -59,13 +138,20 @@
       "fabricante": "HAAS",
       "modelo": "VF-5",
       "cantidad": 1,
-      "image_url": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=85",
-      "especificaciones": {
-        "husillo_rpm": "12 000",
-        "herramientas": "30 + 1 estación",
-        "recorrido_xyz_mm": "1270 × 508 × 635",
-        "control": "Haas CNC"
-      }
+      "especificaciones": [
+        {
+          "etiqueta": "Herramientas",
+          "valor": "24 posiciones"
+        },
+        {
+          "etiqueta": "Husillo (RPM)",
+          "valor": "12 000"
+        },
+        {
+          "etiqueta": "Control",
+          "valor": "CNC HAAS"
+        }
+      ]
     },
     {
       "id": "doosan-dnm-500",
@@ -74,13 +160,20 @@
       "fabricante": "Doosan",
       "modelo": "DNM 500",
       "cantidad": 1,
-      "image_url": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=85",
-      "especificaciones": {
-        "husillo_rpm": "12 000",
-        "herramientas": "30",
-        "recorrido_xyz_mm": "1050 × 570 × 510",
-        "control": "Fanuc / Doosan"
-      }
+      "especificaciones": [
+        {
+          "etiqueta": "Herramientas",
+          "valor": "24 posiciones"
+        },
+        {
+          "etiqueta": "Husillo (RPM)",
+          "valor": "12 000"
+        },
+        {
+          "etiqueta": "Control",
+          "valor": "CNC (Fanuc / Doosan)"
+        }
+      ]
     },
     {
       "id": "doosan-dnm-400",
@@ -89,13 +182,20 @@
       "fabricante": "Doosan",
       "modelo": "DNM 400",
       "cantidad": 1,
-      "image_url": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=85",
-      "especificaciones": {
-        "husillo_rpm": "12 000",
-        "herramientas": "30",
-        "recorrido_xyz_mm": "762 × 440 × 510",
-        "control": "Fanuc / Doosan"
-      }
+      "especificaciones": [
+        {
+          "etiqueta": "Herramientas",
+          "valor": "20 posiciones"
+        },
+        {
+          "etiqueta": "Husillo (RPM)",
+          "valor": "12 000"
+        },
+        {
+          "etiqueta": "Control",
+          "valor": "CNC (Fanuc / Doosan)"
+        }
+      ]
     },
     {
       "id": "doosan-dnm-750",
@@ -104,13 +204,20 @@
       "fabricante": "Doosan",
       "modelo": "DNM 750",
       "cantidad": 1,
-      "image_url": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=85",
-      "especificaciones": {
-        "husillo_rpm": "12 000",
-        "herramientas": "40",
-        "recorrido_xyz_mm": "1530 × 670 × 625",
-        "control": "Fanuc / Doosan"
-      }
+      "especificaciones": [
+        {
+          "etiqueta": "Herramientas",
+          "valor": "30 posiciones"
+        },
+        {
+          "etiqueta": "Husillo (RPM)",
+          "valor": "12 000"
+        },
+        {
+          "etiqueta": "Control",
+          "valor": "CNC (Fanuc / Doosan)"
+        }
+      ]
     },
     {
       "id": "haas-st-1",
@@ -119,100 +226,120 @@
       "fabricante": "HAAS",
       "modelo": "ST-1",
       "cantidad": 1,
-      "image_url": "https://images.unsplash.com/photo-1565967511749-5f3366028b92?auto=format&fit=crop&w=1200&q=85",
-      "especificaciones": {
-        "husillo_rpm": "4 000",
-        "herramientas": "12 posiciones torreta",
-        "recorrido_xyz_mm": "Ø máx. pieza / largo según plato",
-        "control": "Haas CNC"
-      }
+      "especificaciones": [
+        {
+          "etiqueta": "Notas",
+          "valor": "Referencia cruzada LT-1 / ST-1"
+        },
+        {
+          "etiqueta": "Control",
+          "valor": "Haas CNC"
+        }
+      ]
     },
     {
       "id": "haas-st-10y",
       "grupoCapacidad": "torneado",
-      "categoria": "Torno CNC con eje Y",
+      "categoria": "Torno CNC",
       "fabricante": "HAAS",
       "modelo": "ST-10Y",
       "cantidad": 1,
-      "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=85",
-      "especificaciones": {
-        "husillo_rpm": "4 000",
-        "herramientas": "12 + contrapunto motorizado (según config.)",
-        "recorrido_xyz_mm": "Eje Y · mecanizado off-center",
-        "control": "Haas CNC"
-      }
+      "especificaciones": [
+        {
+          "etiqueta": "Tipo",
+          "valor": "Centro de torneado horizontal con eje Y"
+        },
+        {
+          "etiqueta": "Control",
+          "valor": "Haas CNC"
+        }
+      ]
     },
     {
       "id": "bridgeport-fresadoras",
-      "grupoCapacidad": "cnc",
+      "grupoCapacidad": "convencional",
       "categoria": "Fresadora convencional",
       "fabricante": "Bridgeport",
       "modelo": "Serie estándar",
       "cantidad": 5,
-      "image_url": "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=1200&q=85",
-      "especificaciones": {
-        "husillo_rpm": "Variable (correa)",
-        "herramientas": "Manual / DRO",
-        "recorrido_xyz_mm": "Según bancada individual",
-        "control": "Operación manual"
-      }
+      "especificaciones": [
+        {
+          "etiqueta": "Modo",
+          "valor": "Operación manual / DRO según equipo"
+        },
+        {
+          "etiqueta": "Uso típico",
+          "valor": "Ajustes, preparación de superficies y trabajo de taller"
+        }
+      ]
     },
     {
       "id": "tornos-paralelos",
-      "grupoCapacidad": "torneado",
+      "grupoCapacidad": "convencional",
       "categoria": "Torno paralelo",
-      "fabricante": "Varios",
-      "modelo": "Torno motor",
+      "fabricante": "Parque taller",
+      "modelo": "Tornos motor",
       "cantidad": 6,
-      "image_url": "https://images.unsplash.com/photo-1618255688726-71a4c2d113df?auto=format&fit=crop&w=1200&q=85",
-      "especificaciones": {
-        "husillo_rpm": "Escalas por caja de velocidades",
-        "herramientas": "Torreta manual",
-        "recorrido_xyz_mm": "Entre puntos según bancada",
-        "control": "Manual"
-      }
+      "especificaciones": [
+        {
+          "etiqueta": "Entre puntos",
+          "valor": "1 000 mm a 3 000 mm según bancada"
+        },
+        {
+          "etiqueta": "Volteo máx.",
+          "valor": "800 mm"
+        }
+      ]
     },
     {
-      "id": "rectificadoras",
-      "grupoCapacidad": "cnc",
+      "id": "rectificadoras-cilindricas",
+      "grupoCapacidad": "convencional",
       "categoria": "Rectificado",
       "fabricante": "Varios",
-      "modelo": "Superficie / cilíndrico",
+      "modelo": "Rectificadoras cilíndricas universales",
       "cantidad": 3,
-      "image_url": "https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?auto=format&fit=crop&w=1200&q=85",
-      "especificaciones": {
-        "husillo_rpm": "Muela según cabezal",
-        "herramientas": "Muelas certificadas",
-        "recorrido_xyz_mm": "Según modelo",
-        "control": "Manual / hidráulico"
-      }
+      "especificaciones": [
+        {
+          "etiqueta": "Tipo",
+          "valor": "Cilíndrico universal"
+        },
+        {
+          "etiqueta": "Uso típico",
+          "valor": "Acabados y ajustes dimensionales cilíndricos"
+        }
+      ]
     }
   ],
   "clientes": [
     {
-      "nombre": "Becton Dickinson",
+      "nombre": "Becton Dickinson de México",
       "slug": "bd",
-      "logo": "/logos/bd.svg"
-    },
-    {
-      "nombre": "Continental",
-      "slug": "continental",
-      "logo": "/logos/continental.svg"
+      "logo": "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/logos/bd.svg"
     },
     {
       "nombre": "Aumovio",
       "slug": "aumovio",
-      "logo": "/logos/aumovio.svg"
+      "logo": "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/logos/aumovio.svg"
+    },
+    {
+      "nombre": "American Axle Manufacturing de México",
+      "slug": "aam",
+      "logo": "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/logos/aam.svg"
+    },
+    {
+      "nombre": "Essity Higiene y Salud México",
+      "slug": "essity",
+      "logo": "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/logos/essity.svg"
+    },
+    {
+      "nombre": "Takeda",
+      "slug": "takeda",
+      "logo": "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/logos/takeda.svg"
     },
     {
       "nombre": "Alpura",
       "slug": "alpura",
-      "logo": "/logos/alpura.svg"
-    },
-    {
-      "nombre": "American Axle",
-      "slug": "aam",
-      "logo": "/logos/aam.svg"
+      "logo": "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/logos/alpura.svg"
     }
   ]
 }

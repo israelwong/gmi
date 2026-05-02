@@ -7,6 +7,9 @@ type GmiLogoProps = {
   className?: string;
 };
 
+const GMI_LOGO_URL =
+  "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/logos/gmi.svg";
+
 export function GmiLogo({ className }: GmiLogoProps) {
   return (
     <Link
@@ -18,7 +21,7 @@ export function GmiLogo({ className }: GmiLogoProps) {
       aria-label="Grupo GMI, Generado de Maquinados Industriales — Inicio"
     >
       <Image
-        src="/logos/gmi.svg"
+        src={GMI_LOGO_URL}
         alt=""
         width={160}
         height={40}

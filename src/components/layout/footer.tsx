@@ -1,33 +1,45 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone, Share2 } from "lucide-react";
+
+import {
+  CompanyContactEmails,
+  CompanyContactPhones,
+} from "@/components/contact/company-contact-list";
+import { companyInfo } from "@/lib/company-data";
 
 import { NAV_ITEMS } from "./nav-items";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const id = companyInfo.identidad;
 
   return (
     <footer className="mt-auto border-t border-border bg-muted/50">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-3">
           <div className="space-y-3">
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-              Grupo GMI
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              {id.sigla ?? "GMI"}
+            </p>
+            <p className="text-sm font-semibold text-foreground">
+              {id.nombreOficial}
             </p>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Maquinados de precisión, torno CNC y metrología para industrias que
-              requieren tolerancias ajustadas y confidencialidad de proyecto.
+              {companyInfo.manufactura.especialidad} Fabricación técnica con
+              enfoque en sectores como {companyInfo.manufactura.sectoresExperiencia}
+              y confidencialidad cuando el proyecto lo requiere.
             </p>
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-foreground">Enlaces rápidos</p>
+            <p className="text-sm font-semibold text-foreground">
+              Enlaces rápidos
+            </p>
             <ul className="mt-4 space-y-2">
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="text-sm text-primary/90 underline-offset-2 transition-opacity hover:text-primary hover:underline"
                   >
                     {item.label}
                   </Link>
@@ -37,51 +49,34 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <p className="text-sm font-semibold text-foreground">México</p>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
-                <span>
-                  Av. Industrial 1000, Col. Zona Industrial
-                  <br />
-                  Ciudad de México, CDMX — C.P. 00000
-                </span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0 text-accent" aria-hidden />
-                <a href="tel:+525555555555" className="hover:text-primary">
-                  +52 (55) 5555 5555
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 shrink-0 text-accent" aria-hidden />
-                <a href="mailto:contacto@grupogmi.mx" className="hover:text-primary">
-                  contacto@grupogmi.mx
-                </a>
-              </li>
-              <li className="flex items-center gap-2 pt-1">
-                <Share2 className="h-4 w-4 shrink-0 text-accent" aria-hidden />
-                <a
-                  href="https://www.linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary"
-                >
-                  LinkedIn — Grupo GMI
-                </a>
-              </li>
-            </ul>
+            <p className="text-sm font-semibold text-foreground">
+              Información de contacto
+            </p>
+            <CompanyContactPhones compact />
+            <CompanyContactEmails compact />
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              Lun–vie {companyInfo.contacto.horario}
+              {companyInfo.contacto.cerradoFinSemana
+                ? " · Cerrado sábados y domingos."
+                : null}
+            </p>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-border pt-8 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} Grupo GMI. Todos los derechos reservados.</p>
+          <p>© {year} {id.sigla ?? "GMI"} · {id.nombreOficial}</p>
           <p>
-            <Link href="/contacto" className="hover:text-primary">
+            <Link
+              href="/contacto"
+              className="text-primary/90 underline-offset-2 hover:text-primary hover:underline"
+            >
               Aviso de privacidad
             </Link>
             <span className="mx-2 text-border">|</span>
-            <Link href="/contacto" className="hover:text-primary">
+            <Link
+              href="/contacto"
+              className="text-primary/90 underline-offset-2 hover:text-primary hover:underline"
+            >
               Términos de uso
             </Link>
           </p>

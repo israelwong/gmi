@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 
 import { SiteShell } from "@/components/layout/site-shell";
+import { ThemeProvider } from "@/components/layout/theme-provider";
 
 import "./globals.css";
 
@@ -35,9 +36,12 @@ export default function RootLayout({
     <html
       lang="es-MX"
       className={`${inter.variable} ${jetbrainsMono.variable} h-full`}
+      suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col font-sans">
-        <SiteShell>{children}</SiteShell>
+        <ThemeProvider>
+          <SiteShell>{children}</SiteShell>
+        </ThemeProvider>
       </body>
     </html>
   );
