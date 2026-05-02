@@ -12,7 +12,8 @@ export type MachineryItem = {
   fabricante: string;
   modelo: string;
   cantidad: number;
-  image_url: string;
+  /** Reservado para futura galería; la UI actual no muestra fotos. */
+  image_url?: string;
   especificaciones: MachinerySpec;
 };
 

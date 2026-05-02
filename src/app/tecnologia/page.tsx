@@ -24,7 +24,7 @@ export default function TecnologiaPage() {
     <SectionLayout
       eyebrow="Inventario de taller"
       title="Capacidades y tecnología"
-      subtitle="Especificaciones orientativas del parque actual. Pulse la imagen de cada equipo para ampliarla en el visor técnico."
+      subtitle="Especificaciones orientativas del parque actual; los valores se confirman en hoja de proceso y orden de trabajo."
       contentClassName="max-w-6xl"
     >
       <section id="cnc" className="scroll-mt-24">
@@ -61,32 +61,17 @@ export default function TecnologiaPage() {
         <h2 className="border-b border-border pb-2 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-primary">
           Metrología
         </h2>
-        {metrologia?.image_url ? (
-          <div className="mt-8 max-w-xl">
+        {metrologia ? (
+          <div className="mt-8">
             <MetrologiaFichaCard
               cap={{
                 titulo: metrologia.titulo,
                 descripcion: metrologia.descripcion,
                 detalle: metrologia.detalle,
-                image_url: metrologia.image_url,
               }}
             />
           </div>
-        ) : (
-          metrologia && (
-            <div className="mt-6 rounded-xl border border-dashed border-primary/25 bg-muted/30 p-8">
-              <p className="text-base font-medium text-foreground">
-                {metrologia.titulo}
-              </p>
-              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-                {metrologia.descripcion}
-              </p>
-              <p className="mt-4 font-mono text-xs text-primary/90">
-                {metrologia.detalle}
-              </p>
-            </div>
-          )
-        )}
+        ) : null}
       </section>
 
       <div className="mt-16 flex flex-wrap gap-4 border-t border-border pt-10">

@@ -8,6 +8,9 @@ const HERO_COPY = {
     "Ingeniería de precisión en Maquinados Industriales. Soluciones a medida desde 1985.",
 };
 
+const HERO_VIDEO_URL =
+  "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/video/web%20main%20hero.mp4";
+
 export function Hero() {
   return (
     <section className="relative isolate flex min-h-[88vh] items-center overflow-hidden border-b border-border">
@@ -18,9 +21,8 @@ export function Hero() {
         loop
         playsInline
         aria-hidden
-        poster="https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1920&q=80"
       >
-        <source src="/videos/hero-industrial.mp4" type="video/mp4" />
+        <source src={HERO_VIDEO_URL} type="video/mp4" />
       </video>
       <div
         className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/55 to-black/40"

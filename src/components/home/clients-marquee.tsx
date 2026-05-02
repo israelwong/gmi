@@ -177,7 +177,7 @@ export function ClientsMarquee({ clientes }: ClientsMarqueeProps) {
 
   return (
     <section
-      className="border-b border-border bg-background/80 py-10"
+      className="border-b border-border py-10"
       aria-label="Clientes y sectores atendidos"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -212,15 +212,16 @@ export function ClientsMarquee({ clientes }: ClientsMarqueeProps) {
               key={`${c.slug}-${i}`}
               className="group flex shrink-0 items-center justify-center px-12 sm:px-16"
             >
-              <Image
-                src={c.logo}
-                alt={c.nombre}
-                width={200}
-                height={48}
-                draggable={false}
-                className="pointer-events-none h-9 w-auto max-w-[200px] object-contain opacity-60 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
-                style={{ width: "auto" }}
-              />
+              <div className="relative h-9 w-[200px] max-w-[200px] shrink-0">
+                <Image
+                  src={c.logo}
+                  alt={c.nombre}
+                  fill
+                  draggable={false}
+                  className="pointer-events-none object-contain object-center opacity-60 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                  sizes="200px"
+                />
+              </div>
             </div>
           ))}
         </div>
