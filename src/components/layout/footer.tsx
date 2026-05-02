@@ -1,9 +1,6 @@
 import Link from "next/link";
 
-import {
-  CompanyContactEmails,
-  CompanyContactPhones,
-} from "@/components/contact/company-contact-list";
+import { CompanyContactPhones } from "@/components/contact/company-contact-list";
 import { companyInfo } from "@/lib/company-data";
 
 import { NAV_ITEMS } from "./nav-items";
@@ -52,8 +49,7 @@ export function Footer() {
             <p className="text-sm font-semibold text-foreground">
               Información de contacto
             </p>
-            <CompanyContactPhones compact />
-            <CompanyContactEmails compact />
+            <CompanyContactPhones compact footerResumen />
             <p className="text-xs leading-relaxed text-muted-foreground">
               Lun–vie {companyInfo.contacto.horario}
               {companyInfo.contacto.cerradoFinSemana

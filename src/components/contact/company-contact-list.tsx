@@ -6,10 +6,23 @@ import { companyInfo } from "@/lib/company-data";
 type CompanyContactListProps = {
   /** Íconos y tipografía más densos para el footer. */
   compact?: boolean;
+  /**
+   * En el pie solo se muestra el teléfono de oficina; WhatsApp y líneas por
+   * persona siguen disponibles en /contacto.
+   */
+  footerResumen?: boolean;
 };
 
-export function CompanyContactPhones({ compact }: CompanyContactListProps) {
+export function CompanyContactPhones({
+  compact,
+  footerResumen,
+}: CompanyContactListProps) {
   const icon = compact ? "h-4 w-4" : "h-5 w-5";
+
+  const telefonos =
+    footerResumen === true
+      ? companyInfo.contacto.telefonos.filter((t) => t.etiqueta === "Oficina")
+      : companyInfo.contacto.telefonos;
 
   return (
     <ul
@@ -31,7 +44,7 @@ export function CompanyContactPhones({ compact }: CompanyContactListProps) {
           <span className="block">{companyInfo.contacto.municipioRegion}</span>
         </span>
       </li>
-      {companyInfo.contacto.telefonos.map((t) => {
+      {telefonos.map((t) => {
         const isWa = t.href.includes("wa.me");
         return (
           <li key={`${t.etiqueta}-${t.href}`} className="flex items-start gap-2">
