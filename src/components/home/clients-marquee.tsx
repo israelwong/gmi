@@ -304,7 +304,7 @@ export function ClientsMarquee({
                     fill
                     draggable={false}
                     sizes="200px"
-                    className="pointer-events-none object-contain object-center px-1 py-0.5 opacity-60 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 dark:opacity-85 dark:contrast-[1.06] dark:group-hover:contrast-100"
+                    className="pointer-events-none object-contain object-center px-1 py-0.5 opacity-95 transition-opacity duration-300 group-hover:opacity-100 dark:opacity-90 dark:group-hover:opacity-100"
                   />
                 ) : (
                   <span className="absolute inset-x-3 inset-y-0 flex items-center justify-center text-center">

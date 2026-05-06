@@ -126,26 +126,6 @@ export default function TecnologiaPage() {
         ) : null}
       </section>
 
-      <section id="ingenieria" className="mt-20 scroll-mt-24">
-        <h2 className="border-b border-border pb-2 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-          Ingeniería y CAD/CAM
-        </h2>
-        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          Soporte desde modelado hasta generación de trayectorias cuando el
-          proyecto lo requiere.
-        </p>
-        <ul className="mt-6 grid gap-3 sm:max-w-md">
-          {companyInfo.softwareCadCam.map((sw) => (
-            <li
-              key={sw}
-              className="rounded-lg border border-border bg-card px-4 py-3 font-mono text-sm text-primary"
-            >
-              {sw}
-            </li>
-          ))}
-        </ul>
-      </section>
-
       <div className="mt-16 flex flex-wrap gap-4 border-t border-border pt-10">
         <Button asChild>
           <Link href="/contacto">Solicitar cotización de proyecto especial</Link>

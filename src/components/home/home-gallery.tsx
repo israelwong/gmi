@@ -1,12 +1,14 @@
 "use client";
 
+import type { ComponentPropsWithRef } from "react";
 import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Video from "yet-another-react-lightbox/plugins/video";
 import { MasonryPhotoAlbum } from "react-photo-album";
-import type { Photo } from "react-photo-album";
+import type { Photo, Render } from "react-photo-album";
 
 import "yet-another-react-lightbox/styles.css";
 import "react-photo-album/masonry.css";
@@ -39,11 +41,43 @@ const LIGHTBOX_SLIDES = GALLERY_PHOTOS.map((p) => ({
   alt: p.alt,
 }));
 
+function buildGalleryRender(reduceMotion: boolean | null): Render<Photo> | undefined {
+  if (reduceMotion === true) return undefined;
+
+  const imageRender: Render<Photo>["image"] = (
+    props,
+    { index },
+  ) => {
+    const p = props as ComponentPropsWithRef<"img">;
+    const { ref, alt, ...imgProps } = p;
+    return (
+      <motion.div
+        className="size-full"
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "0px 0px -10% 0px", amount: 0.12 }}
+        transition={{
+          duration: 0.45,
+          delay: Math.min(index * 0.045, 0.24),
+          ease: [0.22, 1, 0.36, 1] as const,
+        }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element -- galería remota Supabase */}
+        <img ref={ref} {...imgProps} alt={alt ?? ""} />
+      </motion.div>
+    );
+  };
+
+  return { image: imageRender };
+}
+
 export function HomeGallery() {
+  const reduceMotion = useReducedMotion();
   const [lightboxIndex, setLightboxIndex] = useState<number | undefined>(
     undefined,
   );
   const lightboxOpen = lightboxIndex !== undefined;
+  const galleryRender = buildGalleryRender(reduceMotion);
 
   return (
     <section
@@ -77,6 +111,7 @@ export function HomeGallery() {
               size: "min(calc(100vw - 2rem),72rem)",
             }}
             onClick={({ index }) => setLightboxIndex(index)}
+            render={galleryRender}
             componentsProps={{
               wrapper: {
                 className:
