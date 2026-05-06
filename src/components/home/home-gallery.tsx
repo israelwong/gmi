@@ -53,13 +53,13 @@ function buildGalleryRender(reduceMotion: boolean | null): Render<Photo> | undef
     return (
       <motion.div
         className="size-full"
-        initial={{ opacity: 0, y: 12 }}
+        initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "0px 0px -10% 0px", amount: 0.12 }}
+        viewport={{ once: true, margin: "0px 0px -6% 0px", amount: 0.08 }}
         transition={{
-          duration: 0.45,
-          delay: Math.min(index * 0.045, 0.24),
-          ease: [0.22, 1, 0.36, 1] as const,
+          duration: 1.05,
+          delay: Math.min(index * 0.07, 0.48),
+          ease: [0.33, 1, 0.68, 1] as const,
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element -- galería remota Supabase */}
