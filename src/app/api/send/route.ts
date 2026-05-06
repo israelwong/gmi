@@ -1,16 +1,12 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
+import {
+  buildClientConfirmationEmail,
+  buildInternalLeadEmail,
+} from "@/lib/email/contact-templates";
+import { getSiteBaseUrl } from "@/lib/email/site-base-url";
 import { contactFormSchema } from "@/lib/validations/contact";
-
-function escapeHtml(text: string) {
-  return text
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
 
 export async function POST(request: Request) {
   let json: unknown;
@@ -55,36 +51,44 @@ export async function POST(request: Request) {
   }
 
   const resend = new Resend(apiKey);
-  const telefonoLine = data.telefono
-    ? `<p><strong>Teléfono:</strong> ${escapeHtml(data.telefono)}</p>`
-    : "";
+  const internal = buildInternalLeadEmail(data);
+  const client = buildClientConfirmationEmail(data, getSiteBaseUrl());
 
-  const html = `
-    <h1>Cotización de proyecto especial — Grupo GMI</h1>
-    <p><strong>Nombre:</strong> ${escapeHtml(data.nombre)}</p>
-    <p><strong>Correo:</strong> ${escapeHtml(data.email)}</p>
-    ${telefonoLine}
-    <p><strong>Empresa / proyecto:</strong> ${escapeHtml(data.empresa)}</p>
-    <p><strong>Alcance del proyecto:</strong></p>
-    <p>${escapeHtml(data.mensaje).replace(/\n/g, "<br/>")}</p>
-    <hr />
-    <p style="font-size:12px;color:#64748b">Enviado desde el formulario web.</p>
-  `;
-
-  const { error } = await resend.emails.send({
+  const internalSend = await resend.emails.send({
     from,
     to: [to],
     replyTo: data.email,
-    subject: `[Cotización proyecto] ${data.nombre} — ${data.empresa}`,
-    html,
+    subject: internal.subject,
+    html: internal.html,
   });
 
-  if (error) {
+  if (internalSend.error) {
     return NextResponse.json(
-      { error: error.message ?? "No se pudo enviar el correo" },
+      {
+        error:
+          internalSend.error.message ?? "No se pudo enviar el correo interno",
+      },
       { status: 502 },
     );
   }
 
-  return NextResponse.json({ ok: true });
+  const confirmSend = await resend.emails.send({
+    from,
+    to: [data.email],
+    replyTo: to,
+    subject: client.subject,
+    html: client.html,
+  });
+
+  if (confirmSend.error) {
+    console.error(
+      "[api/send] Correo interno OK; confirmación al cliente falló:",
+      confirmSend.error.message,
+    );
+  }
+
+  return NextResponse.json({
+    ok: true,
+    clientConfirmationSent: !confirmSend.error,
+  });
 }

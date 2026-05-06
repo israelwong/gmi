@@ -2,10 +2,13 @@ import { Globe, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 
 import { companyInfo } from "@/lib/company-data";
+import { cn } from "@/lib/utils";
 
 type CompanyContactListProps = {
   /** Íconos y tipografía más densos para el footer. */
   compact?: boolean;
+  /** Listado aún más denso (panel lateral en /contacto). */
+  dense?: boolean;
   /**
    * Lista resumida de teléfonos: solo oficina (sin WhatsApp ni líneas por persona).
    * Se usa en pie y en el panel de /contacto.
@@ -15,22 +18,22 @@ type CompanyContactListProps = {
 
 export function CompanyContactPhones({
   compact,
+  dense,
   footerResumen,
 }: CompanyContactListProps) {
-  const icon = compact ? "h-4 w-4" : "h-5 w-5";
+  const tight = compact || dense;
+  const icon = tight ? "h-4 w-4" : "h-5 w-5";
 
   const telefonos =
     footerResumen === true
       ? companyInfo.contacto.telefonos.filter((t) => t.etiqueta === "Oficina")
       : companyInfo.contacto.telefonos;
 
+  const listGap = dense ? "space-y-2" : compact ? "space-y-3" : "space-y-4";
+
   return (
     <ul
-      className={
-        compact
-          ? "space-y-3 text-sm text-muted-foreground"
-          : "space-y-4 text-sm text-muted-foreground"
-      }
+      className={cn(listGap, "text-sm text-muted-foreground")}
     >
       <li className="flex gap-2">
         <MapPin

@@ -57,11 +57,18 @@ export function ContactForm() {
         return;
       }
 
+      const payload =
+        data && typeof data === "object"
+          ? (data as Record<string, unknown>)
+          : null;
+      const confirmationOk = payload?.clientConfirmationSent !== false;
+
       reset();
       setFeedback({
         type: "ok",
-        message:
-          "Cotización recibida. Un especialista se pondrá en contacto pronto.",
+        message: confirmationOk
+          ? "Cotización recibida. Le enviamos un correo de confirmación; revise también spam. Un especialista se pondrá en contacto pronto."
+          : "Cotización recibida. Un especialista se pondrá en contacto pronto. Si no ve el correo de confirmación, revise spam o comuníquese por teléfono.",
       });
     } catch {
       setFeedback({

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { HeroVideoLayer } from "@/components/home/hero-video-layer";
 import { Button } from "@/components/ui/button";
 
 const HERO_COPY = {
@@ -14,20 +15,7 @@ const HERO_VIDEO_URL =
 export function Hero() {
   return (
     <section className="relative isolate flex min-h-[88vh] items-center overflow-hidden border-b border-border">
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden
-      >
-        <source src={HERO_VIDEO_URL} type="video/mp4" />
-      </video>
-      <div
-        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/55 to-black/40"
-        aria-hidden
-      />
+      <HeroVideoLayer videoUrl={HERO_VIDEO_URL} />
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
         <div className="max-w-3xl space-y-8 text-white">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/85">

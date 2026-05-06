@@ -8,6 +8,10 @@ type SectionLayoutProps = {
   children: React.ReactNode;
   className?: string;
   contentClassName?: string;
+  /** Sustituye o extiende clases del contenedor `<header>` (ej. menor margen inferior). */
+  headerClassName?: string;
+  /** Sustituye o extiende clases del párrafo del subtítulo. */
+  subtitleClassName?: string;
 };
 
 export function SectionLayout({
@@ -18,6 +22,8 @@ export function SectionLayout({
   children,
   className,
   contentClassName,
+  headerClassName,
+  subtitleClassName,
 }: SectionLayoutProps) {
   return (
     <section
@@ -31,7 +37,7 @@ export function SectionLayout({
         )}
       >
         {(eyebrow || title || subtitle) && (
-          <header className="mb-12 max-w-2xl space-y-3">
+          <header className={cn("mb-12 max-w-2xl space-y-3", headerClassName)}>
             {eyebrow && (
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                 {eyebrow}
@@ -43,7 +49,12 @@ export function SectionLayout({
               </h2>
             )}
             {subtitle && (
-              <p className="text-pretty text-lg leading-relaxed text-muted-foreground">
+              <p
+                className={cn(
+                  "text-pretty text-lg leading-relaxed text-muted-foreground",
+                  subtitleClassName,
+                )}
+              >
                 {subtitle}
               </p>
             )}

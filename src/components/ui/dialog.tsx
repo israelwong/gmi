@@ -48,10 +48,12 @@ const DialogContent = React.forwardRef<
     >
       {children}
       <DialogPrimitive.Close
-        className="absolute right-3 top-3 z-10 inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background/95 text-foreground shadow-sm outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-primary/35 focus-visible:ring-offset-2"
+        className={cn(
+          "absolute right-3 top-3 z-10 inline-flex min-h-11 min-w-11 touch-manipulation items-center justify-center rounded-md border border-border bg-background/95 text-foreground shadow-sm outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-primary/35 focus-visible:ring-offset-2",
+        )}
         aria-label="Cerrar"
       >
-        <X className="h-4 w-4" />
+        <X className="h-4 w-4" aria-hidden />
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
   </DialogPortal>

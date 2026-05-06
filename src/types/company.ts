@@ -52,6 +52,10 @@ export type CompanyInfo = {
     telefonos: ContactoTelefono[];
     correos: { direccion: string; titular: string }[];
     sitioWeb: { etiqueta: string; href: string };
+    /** WGS84: punto del mapa embebido; alinear con el enlace oficial si existe. */
+    coordenadas: { lat: number; lon: number };
+    /** Enlace compartido de Google Maps (p. ej. maps.app.goo.gl). */
+    enlaceGoogleMaps?: string;
   };
   manufactura: {
     especialidad: string;

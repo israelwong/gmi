@@ -52,7 +52,12 @@
     "sitioWeb": {
       "etiqueta": "www.grupogmi.mx",
       "href": "https://www.grupogmi.mx/"
-    }
+    },
+    "coordenadas": {
+      "lat": 19.5955479,
+      "lon": -99.0493418
+    },
+    "enlaceGoogleMaps": "https://maps.app.goo.gl/PRf2kFgh9vKhRDct7"
   },
   "manufactura": {
     "especialidad": "Manufactura de refacciones industriales, fixtures y gages.",

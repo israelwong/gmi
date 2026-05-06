@@ -5,15 +5,36 @@ import Image from "next/image";
 import {
   useCallback,
   useEffect,
+  useId,
   useLayoutEffect,
   useRef,
 } from "react";
 
+import { cn } from "@/lib/utils";
 import type { ClientLogo } from "@/types/company";
+
+export type ClientsMarqueeVariant = "band" | "embedded";
 
 type ClientsMarqueeProps = {
   clientes: ClientLogo[];
+  /** `band`: franja tipo home (full width). `embedded`: bloque contenido dentro de página. */
+  variant?: ClientsMarqueeVariant;
+  /** Título visible encima del carrusel. En `band`, por defecto el copy de portada. */
+  title?: string;
+  className?: string;
+  /**
+   * Solo `variant="band"`: fondo sobrio tipo pie de página (sin franja zinc de portada).
+   * El carril sigue a ancho completo del viewport.
+   */
+  softBand?: boolean;
+  /** Alineación del título sobre el carrusel. Por defecto: centrado en banda “hero”, izquierda en embedded y softBand. */
+  headingAlign?: "center" | "left";
+  /** Si es `true`, no se muestra el título encima del carrusel (solo `aria-label` y pista `.sr-only`). */
+  hideHeading?: boolean;
 };
+
+const TITLE_BAND_DEFAULT =
+  "Industrias que confían en nuestra ingeniería";
 
 const IDLE_RESUME_MS = 3000;
 const AUTOPLAY_PX_PER_SEC = 38;
@@ -23,7 +44,36 @@ function duplicateClients(clientes: ClientLogo[]) {
   return [...clientes, ...clientes];
 }
 
-export function ClientsMarquee({ clientes }: ClientsMarqueeProps) {
+export function ClientsMarquee({
+  clientes,
+  variant = "band",
+  title,
+  className,
+  softBand = false,
+  headingAlign,
+  hideHeading = false,
+}: ClientsMarqueeProps) {
+  const hintId = useId();
+  const isEmbedded = variant === "embedded";
+  const isBandHero = variant === "band" && !softBand;
+  const isBandSoft = variant === "band" && softBand;
+
+  const heading =
+    title ?? (isEmbedded ? "Cartera referenciada de clientes" : TITLE_BAND_DEFAULT);
+
+  const titleOnLeft =
+    isEmbedded ||
+    headingAlign === "left" ||
+    (isBandSoft && headingAlign !== "center");
+
+  const softTextFallback = isEmbedded || isBandSoft;
+
+  const viewportTopMargin = hideHeading
+    ? "mt-2 sm:mt-3"
+    : isEmbedded
+      ? "mt-6"
+      : "mt-8";
+
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const loopWidthRef = useRef(0);
@@ -175,25 +225,58 @@ export function ClientsMarquee({ clientes }: ClientsMarqueeProps) {
     return null;
   }
 
+  const sectionLabel =
+    isEmbedded || isBandSoft ? heading : "Clientes y sectores atendidos";
+
   return (
     <section
-      className="border-b border-border py-10 dark:bg-zinc-400 dark:border-b dark:border-zinc-500/50"
-      aria-label="Clientes y sectores atendidos"
+      className={cn(
+        className,
+        isEmbedded &&
+          "rounded-xl border border-border bg-muted/35 py-8 shadow-sm ring-1 ring-border/45 dark:bg-muted/20 dark:ring-border/55",
+        isBandHero &&
+          "border-b border-border py-10 dark:bg-zinc-400 dark:border-b dark:border-zinc-500/50",
+        isBandSoft &&
+          cn(
+            "w-full border-t border-border border-b bg-muted/30 dark:bg-muted/20",
+            hideHeading ? "py-6 sm:py-7" : "py-9",
+          ),
+      )}
+      aria-label={sectionLabel}
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground dark:text-zinc-800">
-          Industrias que confían en nuestra ingeniería
-        </p>
-        <p id="clients-marquee-hint" className="sr-only">
+      <div
+        className={cn(
+          "mx-auto max-w-6xl px-4 sm:px-6 lg:px-8",
+          isEmbedded && "max-w-none",
+        )}
+      >
+        {!hideHeading && (
+          <p
+            className={cn(
+              "text-xs font-semibold uppercase tracking-[0.2em]",
+              titleOnLeft && "text-left text-primary",
+              !titleOnLeft &&
+                "text-center text-sm font-bold tracking-[0.18em] text-primary sm:text-base dark:tracking-[0.2em]",
+            )}
+          >
+            {heading}
+          </p>
+        )}
+        <p id={hintId} className="sr-only">
           Carrusel automático de logos. Puede arrastrar horizontalmente; el
           movimiento automático se reanuda tras unos segundos sin interacción.
         </p>
       </div>
       <div
         ref={viewportRef}
-        aria-describedby="clients-marquee-hint"
+        aria-describedby={hintId}
         tabIndex={0}
-        className="mt-8 w-full cursor-grab touch-none overflow-x-hidden overflow-y-hidden outline-none active:cursor-grabbing focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 focus-visible:ring-offset-background select-none dark:pb-2 dark:focus-visible:ring-zinc-800/55 dark:focus-visible:ring-offset-zinc-400"
+        className={cn(
+          viewportTopMargin,
+          "w-full cursor-grab touch-none overflow-x-hidden overflow-y-hidden outline-none active:cursor-grabbing focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 focus-visible:ring-offset-background select-none",
+          isBandHero &&
+            "dark:pb-2 dark:focus-visible:ring-zinc-800/55 dark:focus-visible:ring-offset-zinc-400",
+        )}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
@@ -225,7 +308,14 @@ export function ClientsMarquee({ clientes }: ClientsMarqueeProps) {
                   />
                 ) : (
                   <span className="absolute inset-x-3 inset-y-0 flex items-center justify-center text-center">
-                    <span className="line-clamp-2 max-h-full text-[10px] font-semibold uppercase leading-snug tracking-wide text-foreground/80 transition-colors duration-300 group-hover:text-primary dark:text-zinc-800 sm:text-[11px]">
+                    <span
+                      className={cn(
+                        "line-clamp-2 max-h-full text-[10px] font-semibold uppercase leading-snug tracking-wide text-foreground/80 transition-colors duration-300 group-hover:text-primary sm:text-[11px]",
+                        softTextFallback
+                          ? "dark:text-foreground/75 dark:group-hover:text-primary"
+                          : "dark:text-zinc-800",
+                      )}
+                    >
                       {c.nombre}
                     </span>
                   </span>
