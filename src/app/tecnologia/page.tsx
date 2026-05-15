@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { SectionLayout } from "@/components/layout/section-layout";
-import { TecnologiaDisclosureSection } from "@/components/tecnologia/tecnologia-disclosure-section";
 import { EquipoIsomaqSlider } from "@/components/tecnologia/equipo-isomaq-slider";
 import { MachineryFichaCard } from "@/components/tecnologia/machinery-ficha-card";
 import { TecnologiaHero } from "@/components/tecnologia/tecnologia-hero";
@@ -30,21 +29,13 @@ export default function TecnologiaPage() {
     <>
       <TecnologiaHero />
       <SectionLayout contentClassName="max-w-6xl">
-        <TecnologiaDisclosureSection
-          id="manufactura"
-          className="scroll-mt-24"
-          summary={
-            <div className="space-y-1.5">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                Servicios y materiales
-              </p>
-              <h2 className="text-lg font-semibold tracking-tight text-foreground md:text-xl">
-                Servicios especializados y materiales de trabajo
-              </h2>
-            </div>
-          }
-        >
-          <div className="space-y-12">
+        <section id="manufactura" className="scroll-mt-24">
+          <header>
+            <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              Servicios especializados y materiales de trabajo
+            </h2>
+          </header>
+          <div className="mt-8 space-y-12">
             <div className="grid grid-cols-1 gap-10 border-y border-border py-10 sm:grid-cols-2 sm:gap-0 sm:divide-x sm:divide-border sm:py-12">
               {manufactura.procesos.map((proc, i) => (
                 <div
@@ -61,8 +52,8 @@ export default function TecnologiaPage() {
               ))}
             </div>
 
-            <div className="border-t border-border pt-12">
-              <h2 className="text-sm font-semibold text-foreground">
+            <div>
+              <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                 Materiales de trabajo
               </h2>
               <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-0 md:divide-x md:divide-border">
@@ -112,105 +103,78 @@ export default function TecnologiaPage() {
               </div>
             </div>
           </div>
-        </TecnologiaDisclosureSection>
+        </section>
 
-        <TecnologiaDisclosureSection
+        <section
           id="equipo"
           className="mt-14 scroll-mt-24 border-t border-border pt-12"
-          summary={
-            <h2 className="text-base font-semibold tracking-tight text-foreground md:text-lg">
-              Equipo con el que contamos
-            </h2>
-          }
         >
-          <ol className="list-decimal space-y-2.5 pl-5 text-sm leading-relaxed text-muted-foreground marker:font-medium marker:text-primary sm:pl-6 sm:text-[0.9375rem]">
+          <h2 className="text-base font-semibold tracking-tight text-foreground md:text-lg">
+            Equipo con el que contamos
+          </h2>
+          <ol className="mt-6 list-decimal space-y-2.5 pl-5 text-sm leading-relaxed text-muted-foreground marker:font-medium marker:text-primary sm:pl-6 sm:text-[0.9375rem]">
             {companyInfo.equipoInventario.map((item) => (
               <li key={item.descripcion} className="pl-1.5">
                 {item.descripcion}
               </li>
             ))}
           </ol>
-        </TecnologiaDisclosureSection>
+        </section>
 
-        <TecnologiaDisclosureSection
+        <section
           id="equipo-galeria"
-          className="mt-14 scroll-mt-24 border-t border-border pt-12"
-          summary={
-            <h2 className="text-base font-semibold tracking-tight text-foreground md:text-lg">
-              Galería de equipo
-            </h2>
-          }
+          className="mt-8 scroll-mt-24 pt-6"
+          aria-label="Galería de equipo"
         >
           <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 border-y border-border">
             <EquipoIsomaqSlider />
           </div>
-        </TecnologiaDisclosureSection>
+        </section>
 
-        <TecnologiaDisclosureSection
-          id="cnc"
-          className="mt-14 scroll-mt-24"
-          summary={
-            <h2 className="border-b border-border pb-2 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              Centros verticales (CNC)
-            </h2>
-          }
-        >
-          <>
-            <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
-              Inventario consolidado HAAS VF y línea Doosan DNM; cantidades de
-              herramientas y RPM según ficha técnica de equipo.
-            </p>
-            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {cnc.map((item) => (
-                <MachineryFichaCard key={item.id} item={item} />
-              ))}
-            </div>
-          </>
-        </TecnologiaDisclosureSection>
+        <section id="cnc" className="mt-14 scroll-mt-24">
+          <h2 className="border-b border-border pb-2 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+            Centros verticales (CNC)
+          </h2>
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+            Inventario consolidado HAAS VF y línea Doosan DNM; cantidades de
+            herramientas y RPM según ficha técnica de equipo.
+          </p>
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {cnc.map((item) => (
+              <MachineryFichaCard key={item.id} item={item} />
+            ))}
+          </div>
+        </section>
 
-        <TecnologiaDisclosureSection
-          id="torneado"
-          className="mt-20 scroll-mt-24"
-          summary={
-            <h2 className="border-b border-border pb-2 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              Torneado (CNC)
-            </h2>
-          }
-        >
-          <>
-            <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
-              Centro HAAS ST-1 (referencia cruzada LT-1/ST-1) y ST-10Y con eje Y
-              horizontal.
-            </p>
-            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {torneado.map((item) => (
-                <MachineryFichaCard key={item.id} item={item} />
-              ))}
-            </div>
-          </>
-        </TecnologiaDisclosureSection>
+        <section id="torneado" className="mt-20 scroll-mt-24">
+          <h2 className="border-b border-border pb-2 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+            Torneado (CNC)
+          </h2>
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+            Centro HAAS ST-1 (referencia cruzada LT-1/ST-1) y ST-10Y con eje Y
+            horizontal.
+          </p>
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {torneado.map((item) => (
+              <MachineryFichaCard key={item.id} item={item} />
+            ))}
+          </div>
+        </section>
 
-        <TecnologiaDisclosureSection
-          id="convencional"
-          className="mt-20 scroll-mt-24"
-          summary={
-            <h2 className="border-b border-border pb-2 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              Maquinaria convencional
-            </h2>
-          }
-        >
-          <>
-            <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
-              Fresado Bridgeport, tornos paralelos con capacidad declarada entre
-              puntos y volteo, y rectificadoras cilíndricas universales.
-            </p>
-            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {convencional.map((item) => (
-                <MachineryFichaCard key={item.id} item={item} />
-              ))}
-            </div>
-          </>
-        </TecnologiaDisclosureSection>
+        <section id="convencional" className="mt-20 scroll-mt-24">
+          <h2 className="border-b border-border pb-2 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+            Maquinaria convencional
+          </h2>
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+            Fresado Bridgeport, tornos paralelos con capacidad declarada entre
+            puntos y volteo, y rectificadoras cilíndricas universales.
+          </p>
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {convencional.map((item) => (
+              <MachineryFichaCard key={item.id} item={item} />
+            ))}
+          </div>
+        </section>
 
         <div className="mt-16 flex flex-wrap gap-4 border-t border-border pt-10">
           <Button asChild>
