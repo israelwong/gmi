@@ -10,14 +10,14 @@ export function Footer() {
   const id = companyInfo.identidad;
 
   return (
-    <footer className="mt-auto border-t border-border bg-muted/50">
+    <footer className="mt-auto border-t-2 border-t-primary/25 border-border bg-muted/50">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-3 md:gap-12">
           <div className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
               {id.sigla ?? "GMI"}
             </p>
-            <p className="text-sm font-semibold text-foreground">
+            <p className="text-sm font-bold text-foreground">
               {id.nombreOficial}
             </p>
             <p className="text-sm leading-relaxed text-muted-foreground">
@@ -28,7 +28,7 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-foreground">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
               Enlaces rápidos
             </p>
             <ul className="mt-4 space-y-2">
@@ -46,7 +46,7 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <p className="text-sm font-semibold text-foreground">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
               Información de contacto
             </p>
             <CompanyContactPhones compact footerResumen />

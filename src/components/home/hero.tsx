@@ -21,10 +21,10 @@ export function Hero() {
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/85">
             Capacidades industriales · Confidencialidad
           </p>
-          <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
+          <h1 className="text-balance text-4xl font-bold leading-[1.08] tracking-tight [text-shadow:0_2px_28px_rgba(0,0,0,0.4)] sm:text-5xl md:text-6xl">
             {HERO_COPY.line}
           </h1>
-          <p className="max-w-2xl text-pretty text-lg leading-relaxed text-white/90">
+          <p className="max-w-2xl text-pretty text-lg leading-relaxed text-white/92 [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
             Parque HAAS, Doosan y equipamiento complementario para proyectos que
             requieren tolerancias ajustadas, lotes recurrentes y discreción
             operativa.

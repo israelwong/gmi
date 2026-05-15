@@ -39,12 +39,12 @@ export function SectionLayout({
         {(eyebrow || title || subtitle) && (
           <header className={cn("mb-12 max-w-2xl space-y-3", headerClassName)}>
             {eyebrow && (
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
                 {eyebrow}
               </p>
             )}
             {title && (
-              <h2 className="text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+              <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground md:text-[2.125rem] lg:text-4xl">
                 {title}
               </h2>
             )}

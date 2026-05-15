@@ -277,7 +277,7 @@ export function ClientsMarquee({
               "text-xs font-semibold uppercase tracking-[0.2em]",
               titleOnLeft && "text-left text-primary",
               !titleOnLeft &&
-                "text-center text-sm font-bold tracking-[0.18em] text-primary sm:text-base dark:tracking-[0.2em]",
+                "text-center text-sm font-bold uppercase tracking-[0.2em] text-primary sm:text-base dark:tracking-[0.22em]",
             )}
           >
             {heading}

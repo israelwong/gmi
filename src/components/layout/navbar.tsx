@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 import { GmiLogo } from "@/components/brand/gmi-logo";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 import { NAV_ITEMS } from "./nav-items";
@@ -47,6 +48,9 @@ export function Navbar() {
         </nav>
 
         <div className="ml-auto flex shrink-0 items-center gap-2">
+          <Button asChild size="sm" className="hidden font-semibold md:inline-flex">
+            <Link href="/contacto">Contacto</Link>
+          </Button>
           <ThemeToggle />
           <button
             type="button"
