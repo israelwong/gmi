@@ -1,0 +1,32 @@
+/* Estilos locales del carrusel de equipo (Swiper) — fondo claro */
+.equipo-swiper-root {
+  --swiper-navigation-size: 2.75rem;
+  --swiper-theme-color: #004a99;
+  --swiper-pagination-bullet-inactive-color: rgba(15, 23, 42, 0.28);
+}
+
+.equipo-swiper-root .swiper-button-prev,
+.equipo-swiper-root .swiper-button-next {
+  color: #004a99;
+}
+
+.equipo-swiper-root .swiper-button-prev::after,
+.equipo-swiper-root .swiper-button-next::after {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.equipo-swiper-root .swiper-pagination-bullet {
+  opacity: 1;
+}
+
+/* Mismo fondo blanco en dark: controles siguen en primario institucional */
+.dark .equipo-swiper-root {
+  --swiper-theme-color: #004a99;
+  --swiper-pagination-bullet-inactive-color: rgba(15, 23, 42, 0.32);
+}
+
+.dark .equipo-swiper-root .swiper-button-prev,
+.dark .equipo-swiper-root .swiper-button-next {
+  color: #004a99;
+}

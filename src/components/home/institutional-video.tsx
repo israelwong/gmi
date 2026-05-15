@@ -41,25 +41,27 @@ export function InstitutionalVideo() {
         </header>
 
         <ul
-          className="mt-12 grid list-none gap-6 sm:grid-cols-2 sm:gap-7 lg:mt-14 lg:grid-cols-3 lg:gap-8"
+          className="mt-12 grid list-none grid-cols-1 divide-y divide-border border-y border-border md:grid-cols-3 md:divide-x md:divide-y-0 lg:mt-14"
           role="list"
         >
           {POINTS.map(({ icon: Icon, title, text }) => (
-            <li key={title}>
-              <article className="flex h-full flex-col gap-3 rounded-xl border border-border bg-card p-6 shadow-sm ring-1 ring-border/35 sm:p-7 dark:bg-card/95 dark:ring-border/50 dark:shadow-none">
-                <div
-                  className="flex size-10 shrink-0 items-center justify-center rounded-lg border border-primary/25 bg-primary/10 text-primary"
-                  aria-hidden
-                >
-                  <Icon className="size-5" strokeWidth={1.75} />
-                </div>
-                <div className="min-w-0 space-y-1.5 pt-1">
-                  <h3 className="text-base font-semibold leading-snug text-foreground">
-                    {title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
-                </div>
-              </article>
+            <li
+              key={title}
+              className="flex gap-4 py-8 md:flex-col md:gap-5 md:px-6 md:py-10 lg:gap-6"
+            >
+              <Icon
+                className="mt-0.5 size-5 shrink-0 text-primary md:mt-0 md:size-6"
+                strokeWidth={1.75}
+                aria-hidden
+              />
+              <div className="min-w-0 space-y-1.5">
+                <h3 className="text-base font-semibold leading-snug text-foreground">
+                  {title}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {text}
+                </p>
+              </div>
             </li>
           ))}
         </ul>

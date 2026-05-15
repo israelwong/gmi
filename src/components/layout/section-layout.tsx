@@ -8,6 +8,8 @@ type SectionLayoutProps = {
   children: React.ReactNode;
   className?: string;
   contentClassName?: string;
+  /** Clases del `<h2>` del título. */
+  titleClassName?: string;
   /** Sustituye o extiende clases del contenedor `<header>` (ej. menor margen inferior). */
   headerClassName?: string;
   /** Sustituye o extiende clases del párrafo del subtítulo. */
@@ -23,6 +25,7 @@ export function SectionLayout({
   className,
   contentClassName,
   headerClassName,
+  titleClassName,
   subtitleClassName,
 }: SectionLayoutProps) {
   return (
@@ -44,7 +47,12 @@ export function SectionLayout({
               </p>
             )}
             {title && (
-              <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground md:text-[2.125rem] lg:text-4xl">
+              <h2
+                className={cn(
+                  "text-balance text-3xl font-bold tracking-tight text-foreground md:text-[2.125rem] lg:text-4xl",
+                  titleClassName,
+                )}
+              >
                 {title}
               </h2>
             )}

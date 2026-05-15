@@ -60,7 +60,7 @@ export type CompanyInfo = {
   manufactura: {
     especialidad: string;
     sectoresExperiencia: string;
-    procesos: string[];
+    procesos: { titulo: string; descripcion: string }[];
     materiales: {
       titulo: string;
       detalle: string;

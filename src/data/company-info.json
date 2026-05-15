@@ -63,8 +63,14 @@
     "especialidad": "Manufactura de refacciones industriales, fixtures y gages.",
     "sectoresExperiencia": "Automotriz, farmacéutico y alimenticio.",
     "procesos": [
-      "Fixture",
-      "Gages"
+      {
+        "titulo": "Fixtures de producción",
+        "descripcion": "Sujeción y referencia para mecanizado y ensamble en serie: localizan la pieza con repetibilidad y ciclos más estables."
+      },
+      {
+        "titulo": "Gages de inspección",
+        "descripcion": "Galgas y útiles para verificar en taller que la pieza cumple tolerancias e intercambiabilidad según el plano."
+      }
     ],
     "materiales": [
       {

@@ -1,6 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+} from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   useCallback,
@@ -26,6 +31,8 @@ export type SplitHeroSlidesProps = {
   className?: string;
 };
 
+const easeOut = [0.22, 1, 0.36, 1] as const;
+
 export function SplitHeroSlides({
   slides,
   eyebrow,
@@ -35,19 +42,23 @@ export function SplitHeroSlides({
 }: SplitHeroSlidesProps) {
   const count = slides.length;
   const [index, setIndex] = useState(0);
-  const [reduceMotion, setReduceMotion] = useState(false);
+  const [reduceMq, setReduceMq] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+  const reduceMotion = reduceMq || !!prefersReducedMotion;
+  const [slideDirection, setSlideDirection] = useState(1);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const sync = () => setReduceMotion(mq.matches);
+    const sync = () => setReduceMq(mq.matches);
     sync();
     mq.addEventListener("change", sync);
     return () => mq.removeEventListener("change", sync);
   }, []);
 
   const goTo = useCallback(
-    (i: number) => {
+    (i: number, direction: number) => {
       if (count <= 0) return;
+      setSlideDirection(direction >= 0 ? 1 : -1);
       setIndex(((i % count) + count) % count);
     },
     [count],
@@ -56,6 +67,7 @@ export function SplitHeroSlides({
   useEffect(() => {
     if (count <= 1 || autoRotateMs <= 0 || reduceMotion) return;
     const id = window.setTimeout(() => {
+      setSlideDirection(1);
       setIndex((i) => (i + 1) % count);
     }, autoRotateMs);
     return () => window.clearTimeout(id);
@@ -63,6 +75,112 @@ export function SplitHeroSlides({
 
   const slide = count > 0 ? slides[Math.min(index, count - 1)] : null;
   if (!slide) return null;
+
+  const tFast = reduceMotion ? 0 : 0.52;
+  const tMed = reduceMotion ? 0 : 0.7;
+  const tHero = reduceMotion ? 0 : 0.9;
+
+  const imageVariants = {
+    enter: (dir: number) =>
+      reduceMotion
+        ? { opacity: 0 }
+        : {
+            x: dir >= 0 ? "18%" : "-18%",
+            opacity: 0,
+            scale: 1.08,
+            filter: "brightness(0.7) contrast(1.05)",
+          },
+    center: reduceMotion
+      ? { opacity: 1 }
+      : {
+          x: 0,
+          opacity: 1,
+          scale: 1,
+          filter: "brightness(1) contrast(1)",
+        },
+    exit: (dir: number) =>
+      reduceMotion
+        ? { opacity: 0 }
+        : {
+            x: dir >= 0 ? "-12%" : "12%",
+            opacity: 0,
+            scale: 0.94,
+            filter: "brightness(0.75)",
+          },
+  };
+
+  const textContainerVariants = {
+    hidden: {},
+    visible: reduceMotion
+      ? {}
+      : {
+          transition: {
+            staggerChildren: 0.12,
+            delayChildren: 0.07,
+          },
+        },
+    exit: reduceMotion
+      ? { opacity: 0, transition: { duration: 0.15 } }
+      : {
+          opacity: 0,
+          filter: "blur(6px)",
+          transition: { duration: 0.32, ease: easeOut },
+        },
+  };
+
+  const eyebrowVariants = {
+    hidden: reduceMotion ? { opacity: 0 } : { opacity: 0, y: 10, skewX: -6 },
+    visible: reduceMotion
+      ? { opacity: 1 }
+      : {
+          opacity: 1,
+          y: 0,
+          skewX: 0,
+          transition: { duration: tFast, ease: easeOut },
+        },
+  };
+
+  const titleVariants = {
+    hidden: reduceMotion
+      ? { opacity: 0 }
+      : {
+          opacity: 0,
+          y: 22,
+          clipPath: "inset(0 100% 0 0)",
+          filter: "blur(10px)",
+        },
+    visible: reduceMotion
+      ? { opacity: 1 }
+      : {
+          opacity: 1,
+          y: 0,
+          clipPath: "inset(0 0% 0 0)",
+          filter: "blur(0px)",
+          transition: { duration: tHero, ease: easeOut },
+        },
+  };
+
+  const paragraphVariants = {
+    hidden: reduceMotion ? { opacity: 0 } : { opacity: 0, y: 16 },
+    visible: reduceMotion
+      ? { opacity: 1 }
+      : {
+          opacity: 1,
+          y: 0,
+          transition: { duration: tMed, ease: easeOut },
+        },
+  };
+
+  const highlightsVariants = {
+    hidden: reduceMotion ? { opacity: 0 } : { opacity: 0, y: 12 },
+    visible: reduceMotion
+      ? { opacity: 1 }
+      : {
+          opacity: 1,
+          y: 0,
+          transition: { duration: tFast, ease: easeOut },
+        },
+  };
 
   return (
     <section className={cn("relative isolate border-b border-border", className)}>
@@ -95,53 +213,90 @@ export function SplitHeroSlides({
                 "backdrop-blur-[1.5px] transition-colors hover:bg-primary-foreground/20 active:bg-primary-foreground/25",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/45 focus-visible:ring-offset-2 focus-visible:ring-offset-[#001a33]",
               )}
-              onClick={() => goTo(index - 1)}
+              onClick={() => goTo(index - 1, -1)}
               aria-label="Diapositiva anterior"
             >
               <ChevronLeft className="size-[1.15rem] shrink-0 sm:size-5" aria-hidden />
             </button>
           ) : null}
 
-          <div
-            className={cn(
-              "relative z-10 min-w-0 space-y-3 lg:space-y-4",
-              count > 1 && "pl-11 sm:pl-12 lg:pl-14",
-            )}
-          >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              className={cn(
+                "relative z-10 min-w-0 space-y-3 lg:space-y-4",
+                count > 1 && "pl-11 sm:pl-12 lg:pl-14",
+              )}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={textContainerVariants}
+            >
               {eyebrow ? (
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary-foreground/85">
+                <motion.p
+                  className="text-xs font-semibold uppercase tracking-[0.25em] text-primary-foreground/85"
+                  variants={eyebrowVariants}
+                >
                   {eyebrow}
-                </p>
+                </motion.p>
               ) : null}
-              <h1 className="text-balance text-3xl font-bold leading-[1.08] tracking-tight drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)] sm:text-4xl md:text-[2rem] lg:text-4xl">
+              <motion.h1
+                className="text-balance text-3xl font-bold leading-[1.08] tracking-tight drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)] sm:text-4xl md:text-[2rem] lg:text-4xl"
+                variants={titleVariants}
+              >
                 {slide.title}
-              </h1>
-              <p
+              </motion.h1>
+              <motion.p
                 className="max-w-xl text-pretty text-base leading-relaxed text-primary-foreground/92 drop-shadow-[0_1px_12px_rgba(0,0,0,0.25)] sm:text-lg"
                 id={`split-hero-desc-${index}`}
+                variants={paragraphVariants}
               >
                 {slide.description}
-              </p>
+              </motion.p>
               {slide.highlights && slide.highlights.length > 0 ? (
-                <p className="max-w-xl text-pretty text-sm leading-snug tracking-tight text-primary-foreground/88 sm:text-[0.9375rem]">
+                <motion.p
+                  className="max-w-xl text-pretty text-sm leading-snug tracking-tight text-primary-foreground/88 sm:text-[0.9375rem]"
+                  variants={highlightsVariants}
+                >
                   {slide.highlights.join(" · ")}
-                </p>
+                </motion.p>
               ) : null}
-              {footer ? <div className="pt-2">{footer}</div> : null}
-          </div>
+              {footer ? (
+                <motion.div className="pt-2" variants={paragraphVariants}>
+                  {footer}
+                </motion.div>
+              ) : null}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
-        {/* Col 2: imagen + siguiente (anterior va en columna de texto) */}
-        <div className="relative order-1 min-h-[220px] w-full bg-black md:order-2 md:min-h-[min(52vh,460px)]">
-          <Image
-            key={`${slide.image.src}-${index}`}
-            src={slide.image.src}
-            alt={slide.image.alt}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover transition-opacity duration-300 motion-reduce:transition-none"
-            priority={index === 0}
-          />
+        {/* Col 2: imagen + siguiente */}
+        <div className="relative order-1 min-h-[220px] w-full overflow-hidden bg-black md:order-2 md:min-h-[min(52vh,460px)]">
+          <AnimatePresence initial={false} custom={slideDirection} mode="popLayout">
+            <motion.div
+              key={`${slide.image.src}-${index}`}
+              custom={slideDirection}
+              variants={imageVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={
+                reduceMotion
+                  ? { duration: 0.15 }
+                  : { duration: 0.78, ease: easeOut }
+              }
+              className="absolute inset-0"
+            >
+              <Image
+                src={slide.image.src}
+                alt={slide.image.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                priority={index === 0}
+              />
+            </motion.div>
+          </AnimatePresence>
           {count > 1 ? (
             <button
               type="button"
@@ -151,7 +306,7 @@ export function SplitHeroSlides({
                 "backdrop-blur-[1.5px] transition-colors hover:bg-black/72 active:bg-black/80",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/45 focus-visible:ring-offset-0",
               )}
-              onClick={() => goTo(index + 1)}
+              onClick={() => goTo(index + 1, 1)}
               aria-label="Diapositiva siguiente"
             >
               <ChevronRight className="size-[1.15rem] shrink-0 sm:size-5" aria-hidden />

@@ -15,7 +15,7 @@ function buildTecnologiaSlides(): SplitHeroSlide[] {
     },
     title: "Capacidades y tecnología",
     description: `${m.especialidad} Sectores: ${m.sectoresExperiencia}`,
-    highlights: [...m.procesos, ...companyInfo.softwareCadCam],
+    highlights: [...m.procesos.map((p) => p.titulo), ...companyInfo.softwareCadCam],
   };
 
   const materiales = m.materiales.map((mat) => {
