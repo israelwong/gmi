@@ -61,7 +61,11 @@ export type CompanyInfo = {
     especialidad: string;
     sectoresExperiencia: string;
     procesos: string[];
-    materiales: { titulo: string; detalle: string }[];
+    materiales: {
+      titulo: string;
+      detalle: string;
+      imagenes?: { url: string; etiqueta?: string }[];
+    }[];
   };
   softwareCadCam: string[];
   confidencialidad: {
@@ -74,6 +78,11 @@ export type CompanyInfo = {
     descripcion: string;
     detalle: string;
     image_url?: string;
+  }>;
+  /** Inventario narrativo con enlace a material visual (ficha fabricante, etc.). */
+  equipoInventario: Array<{
+    descripcion: string;
+    recurso: { url: string; etiqueta: string };
   }>;
   maquinaria: MachineryItem[];
   clientes: ClientLogo[];

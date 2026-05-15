@@ -9,10 +9,10 @@
     "fundador": "Alfonso Salinas López",
     "anioConsolidacion": 1998,
     "nombreConsolidado": "GMI",
-    "resumen": "Desde 1985 como Taller Salinas hasta la consolidación en 1998 como Generado de Maquinados Industriales (GMI), S.A. de C.V.: manufactura de refacciones, fixtures y gages con procesos reproducibles.",
+    "resumen": "Iniciamos en 1985 como Taller Salinas, fundado por el Sr. Alfonso Salinas López, y en 1998 nos consolidamos como Generado de Maquinados Industriales S.A. de C.V.",
     "narrativa": [
-      "Generado de Maquinados Industriales S.A. de C.V. nace como Taller Salinas en 1985, cuando el Sr. Alfonso Salinas López inicia capacidad dedicada al maquinado de precisión. En 1998 la organización toma forma corporativa consolidada como GMI, integrando ingeniería, parque tecnológico y atención a sectores como automotriz, farmacéutico y alimenticio.",
-      "Nuestro trabajo se orienta a la manufactura industrial de piezas funcionales —refacciones, fixtures y gauges— combinando proceso en CNC, equipo convencional y metrología de control dimensional, con soporte CAD/CAM cuando el proyecto lo requiere."
+      "Somos una empresa 100% mexicana que brinda soluciones de maquinados y manufactura de piezas de precisión.",
+      "Hoy en día atendemos al sector automotriz, farmacéutico y alimenticio, garantizando cumplimiento con servicio técnico profesional."
     ],
     "mision": "Ofrecer productos de excelente manufactura cumpliendo con las expectativas del cliente, logrando la unión de personal capacitado tecnológicamente en áreas afines a las necesidades de la industria.",
     "vision": "Consolidar el liderazgo en el mercado basado en tecnología de punta para la satisfacción del cliente."
@@ -63,24 +63,51 @@
     "especialidad": "Manufactura de refacciones industriales, fixtures y gages.",
     "sectoresExperiencia": "Automotriz, farmacéutico y alimenticio.",
     "procesos": [
-      "Rectificado cilíndrico y plano",
-      "Tratamiento térmico",
-      "Pavonado",
-      "Sand blast / granallado",
-      "Anodizado (natural, negro y de color)"
+      "Fixture",
+      "Gages"
     ],
     "materiales": [
       {
         "titulo": "Aceros inoxidables",
-        "detalle": "304, 316, 420, TX10T"
+        "detalle": "304, 316, 420, TX10T",
+        "imagenes": [
+          {
+            "url": "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/materiales/Aceros%20Inoxidables.png",
+            "etiqueta": "Aceros inoxidables"
+          }
+        ]
       },
       {
         "titulo": "Metales aleados y herramental",
-        "detalle": "Duraluminio, cobre de berilio, H13, M2, D2, bronce"
+        "detalle": "Duraluminio, cobre de berilio, H13, M2, D2, bronce",
+        "imagenes": [
+          {
+            "url": "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/materiales/Dura%20aluminio.png",
+            "etiqueta": "Duraluminio"
+          },
+          {
+            "url": "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/materiales/Cobre%20de%20Berilio.png",
+            "etiqueta": "Cobre de berilio"
+          },
+          {
+            "url": "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/materiales/Bronce.png",
+            "etiqueta": "Bronce"
+          }
+        ]
       },
       {
         "titulo": "Plásticos y compuestos",
-        "detalle": "PEEK, Nylamid, Celoron"
+        "detalle": "PEEK, Nylamid, Celoron",
+        "imagenes": [
+          {
+            "url": "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/materiales/peek.png",
+            "etiqueta": "PEEK"
+          },
+          {
+            "url": "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/materiales/Acetal.png",
+            "etiqueta": "Acetal"
+          }
+        ]
       }
     ]
   },
@@ -105,12 +132,99 @@
       "titulo": "Torneado de precisión",
       "descripcion": "Torno CNC y paralelos para ejes y conjuntos donde el acabado y la geometría son críticos en refacción y tooling.",
       "detalle": "HAAS ST · Tornos paralelos (1000–3000 mm entre puntos)"
+    }
+  ],
+  "equipoInventario": [
+    {
+      "descripcion": "1 centro de maquinado vertical HAAS VF-3, 24 herramientas CNC (8 000 RPM).",
+      "recurso": {
+        "url": "https://www.haascnc.com/machines/vertical-mills/vf-series/models/medium/vf-3.html",
+        "etiqueta": "Ficha Haas VF-3 (imagen en página oficial)"
+      }
     },
     {
-      "id": "metrologia",
-      "titulo": "Metrología y control dimensional",
-      "descripcion": "Verificación dimensional con equipo de alta resolución: mesa tridimensional tipo CMM y comparador óptico Mitutoyo; trazabilidad al especificación del cliente.",
-      "detalle": "CMM · Comparador óptico Mitutoyo · trazabilidad"
+      "descripcion": "1 centro de maquinado vertical HAAS VF-5, 24 herramientas CNC (12 000 RPM).",
+      "recurso": {
+        "url": "https://www.haascnc.com/machines/vertical-mills/vf-series/models/medium/vf-5.html",
+        "etiqueta": "Ficha Haas VF-5 (imagen en página oficial)"
+      }
+    },
+    {
+      "descripcion": "1 centro de maquinado vertical Doosan DNM 500, 24 herramientas CNC (12 000 RPM).",
+      "recurso": {
+        "url": "https://www.dn-solutions.com/us/product/machining-center/vertical/dnm-4000.do",
+        "etiqueta": "DN Solutions · familia DNM (referencia visual)"
+      }
+    },
+    {
+      "descripcion": "1 centro de maquinado vertical Doosan DNM 400, 20 herramientas CNC (12 000 RPM).",
+      "recurso": {
+        "url": "https://www.dn-solutions.com/us/product/machining-center/vertical/dnm-4000.do",
+        "etiqueta": "DN Solutions · familia DNM (referencia visual)"
+      }
+    },
+    {
+      "descripcion": "1 centro de maquinado vertical Doosan DNM 750, 30 herramientas CNC (12 000 RPM).",
+      "recurso": {
+        "url": "https://www.dn-solutions.com/us/product/machining-center/vertical/dnm-4000.do",
+        "etiqueta": "DN Solutions · familia DNM (referencia visual)"
+      }
+    },
+    {
+      "descripcion": "1 torno CNC HAAS LT-1.",
+      "recurso": {
+        "url": "https://www.haascnc.com/machines/lathes/st/models.html",
+        "etiqueta": "Haas · modelos ST (elegir ST-1 / ST-10 según ficha)"
+      }
+    },
+    {
+      "descripcion": "1 centro de torneado horizontal con eje Y HAAS ST-10Y.",
+      "recurso": {
+        "url": "https://www.haascnc.com/machines/lathes/st/models/y-axis/st-10y.html",
+        "etiqueta": "Ficha Haas ST-10Y (página oficial)"
+      }
+    },
+    {
+      "descripcion": "5 fresadoras Bridgeport.",
+      "recurso": {
+        "url": "https://www.hardinge.com/our-brands/bridgeport/",
+        "etiqueta": "Hardinge · marca Bridgeport"
+      }
+    },
+    {
+      "descripcion": "6 tornos paralelos con capacidad desde 1 000 mm entre puntos hasta 3 000 mm y volteo máximo de 800 mm.",
+      "recurso": {
+        "url": "https://commons.wikimedia.org/wiki/Category:Engine_lathes",
+        "etiqueta": "Wikimedia Commons · tornos paralelos (licencias abiertas)"
+      }
+    },
+    {
+      "descripcion": "3 rectificadoras cilíndricas universales.",
+      "recurso": {
+        "url": "https://commons.wikimedia.org/wiki/Category:Cylindrical_grinders",
+        "etiqueta": "Wikimedia Commons · rectificadoras cilíndricas"
+      }
+    },
+    {
+      "descripcion": "1 electroerosionadora de corte por hilo.",
+      "recurso": {
+        "url": "https://commons.wikimedia.org/wiki/Category:Electrical_discharge_machining",
+        "etiqueta": "Wikimedia Commons · electroerosión"
+      }
+    },
+    {
+      "descripcion": "1 mesa de coordenadas CMM.",
+      "recurso": {
+        "url": "https://www.mitutoyo.com/products/category/coordinate-measuring-machines/",
+        "etiqueta": "Mitutoyo · máquinas de medición tridimensional"
+      }
+    },
+    {
+      "descripcion": "1 comparador óptico Mitutoyo.",
+      "recurso": {
+        "url": "https://www.mitutoyo.com/products/category/optical-comparators/",
+        "etiqueta": "Mitutoyo · comparadores ópticos"
+      }
     }
   ],
   "maquinaria": [
@@ -345,6 +459,11 @@
       "nombre": "Alpura",
       "slug": "alpura",
       "logo": "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/logos/alpura.svg"
+    },
+    {
+      "nombre": "Grupo Peñafiel",
+      "slug": "penafiel",
+      "logo": "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/logos/penafiel.svg"
     }
   ]
 }

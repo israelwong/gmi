@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Crosshair, Disc3, Ruler } from "lucide-react";
+import { Crosshair, Disc3 } from "lucide-react";
 
 import { companyInfo } from "@/lib/company-data";
 import { cn } from "@/lib/utils";
@@ -7,8 +7,9 @@ import { cn } from "@/lib/utils";
 const ICONS = {
   cnc: Crosshair,
   torneado: Disc3,
-  metrologia: Ruler,
 } as const;
+
+type CapId = keyof typeof ICONS;
 
 type Cap = {
   id: string;
@@ -21,20 +22,19 @@ type CapabilitiesBentoProps = {
   capacidades: Cap[];
 };
 
-const LINKS: Record<string, { href: string; label: string }> = {
+const LINKS: Record<CapId, { href: string; label: string }> = {
   cnc: { href: "/tecnologia#cnc", label: "Ver parque CNC" },
   torneado: { href: "/tecnologia#torneado", label: "Ver torneado" },
-  metrologia: { href: "/tecnologia#metrologia", label: "Ver metrología" },
 };
 
 export function CapabilitiesBento({ capacidades }: CapabilitiesBentoProps) {
-  const [cnc, torneado, metro] = capacidades;
-
-  const bloques = [
-    cnc && { cap: cnc, icon: ICONS.cnc },
-    torneado && { cap: torneado, icon: ICONS.torneado },
-    metro && { cap: metro, icon: ICONS.metrologia },
-  ].filter(Boolean) as Array<{ cap: Cap; icon: (typeof ICONS)[keyof typeof ICONS] }>;
+  const bloques = (["cnc", "torneado"] as const)
+    .map((id) => {
+      const cap = capacidades.find((c) => c.id === id);
+      if (!cap) return null;
+      return { cap, icon: ICONS[id] };
+    })
+    .filter((x): x is NonNullable<typeof x> => x != null);
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
@@ -50,14 +50,14 @@ export function CapabilitiesBento({ capacidades }: CapabilitiesBentoProps) {
           <span className="font-medium text-foreground/85">
             Sectores: {companyInfo.manufactura.sectoresExperiencia}
           </span>
-          . Tres líneas recurrentes que apoyamos en planta: mecanizado CNC,
-          torneado y verificación dimensional.
+          . Dos líneas recurrentes que apoyamos en planta: mecanizado CNC y
+          torneado de precisión.
         </p>
       </div>
 
-      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
         {bloques.map(({ cap, icon: Icon }) => {
-          const link = LINKS[cap.id];
+          const link = LINKS[cap.id as CapId];
           return (
             <Link
               key={cap.id}
