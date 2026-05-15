@@ -3,19 +3,21 @@ import { ArrowRight } from "lucide-react";
 
 import { HeroVideoLayer } from "@/components/home/hero-video-layer";
 import { Button } from "@/components/ui/button";
+import { HERO_MAIN_VIDEO_URL } from "@/lib/hero-video";
 
 const HERO_COPY = {
   line:
     "Ingeniería de precisión en Maquinados Industriales. Soluciones a medida desde 1985.",
 };
 
-const HERO_VIDEO_URL =
-  "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/video/web%20main%20hero.mp4";
-
 export function Hero() {
   return (
     <section className="relative isolate flex min-h-[88vh] items-center overflow-hidden border-b border-border">
-      <HeroVideoLayer videoUrl={HERO_VIDEO_URL} />
+      <HeroVideoLayer videoUrl={HERO_MAIN_VIDEO_URL} />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-1 bg-gradient-to-r from-primary/90 via-primary to-primary/70"
+        aria-hidden
+      />
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
         <div className="max-w-3xl space-y-8 text-white">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/85">

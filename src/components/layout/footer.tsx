@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CompanyContactPhones } from "@/components/contact/company-contact-list";
 import { companyInfo } from "@/lib/company-data";
 
-import { NAV_ITEMS } from "./nav-items";
+import { FOOTER_NAV_ITEMS } from "./nav-items";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -32,7 +32,7 @@ export function Footer() {
               Enlaces rápidos
             </p>
             <ul className="mt-4 space-y-2">
-              {NAV_ITEMS.map((item) => (
+              {FOOTER_NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}

@@ -37,7 +37,7 @@ export function CapabilitiesBento({ capacidades }: CapabilitiesBentoProps) {
     .filter((x): x is NonNullable<typeof x> => x != null);
 
   return (
-    <section className="border-y border-border bg-muted/35 py-20 dark:bg-muted/10 sm:py-24">
+    <section className="border-y-2 border-primary/15 bg-gradient-to-b from-primary/[0.07] via-muted/50 to-muted/35 py-20 dark:border-primary/25 dark:from-primary/10 dark:via-muted/10 dark:to-muted/10 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">

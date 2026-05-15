@@ -48,7 +48,11 @@ export function Navbar() {
         </nav>
 
         <div className="ml-auto flex shrink-0 items-center gap-2">
-          <Button asChild size="sm" className="hidden font-semibold md:inline-flex">
+          <Button
+            asChild
+            size="sm"
+            className="shrink-0 px-3 text-xs font-semibold sm:text-sm"
+          >
             <Link href="/contacto">Contacto</Link>
           </Button>
           <ThemeToggle />

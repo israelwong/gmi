@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { SectionLayout } from "@/components/layout/section-layout";
 import { MachineryFichaCard } from "@/components/tecnologia/machinery-ficha-card";
+import { TecnologiaHero } from "@/components/tecnologia/tecnologia-hero";
 import { Button } from "@/components/ui/button";
 import { companyInfo } from "@/lib/company-data";
 
@@ -24,12 +25,9 @@ export default function TecnologiaPage() {
   );
 
   return (
-    <SectionLayout
-      eyebrow="Inventario de taller"
-      title="Capacidades y tecnología"
-      subtitle={`${manufactura.especialidad} Sectores: ${manufactura.sectoresExperiencia}`}
-      contentClassName="max-w-6xl"
-    >
+    <>
+      <TecnologiaHero />
+      <SectionLayout contentClassName="max-w-6xl">
       <section id="manufactura" className="scroll-mt-24">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
           Procesos y materiales (referencia técnica)
@@ -183,5 +181,6 @@ export default function TecnologiaPage() {
         </Button>
       </div>
     </SectionLayout>
+    </>
   );
 }
