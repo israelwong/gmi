@@ -1,7 +1,5 @@
-import Link from "next/link";
 import { Crosshair, Disc3 } from "lucide-react";
 
-import { companyInfo } from "@/lib/company-data";
 import { cn } from "@/lib/utils";
 
 const ICONS = {
@@ -9,22 +7,14 @@ const ICONS = {
   torneado: Disc3,
 } as const;
 
-type CapId = keyof typeof ICONS;
-
 type Cap = {
   id: string;
   titulo: string;
   descripcion: string;
-  detalle: string;
 };
 
 type CapabilitiesBentoProps = {
   capacidades: Cap[];
-};
-
-const LINKS: Record<CapId, { href: string; label: string }> = {
-  cnc: { href: "/tecnologia#cnc", label: "Ver parque CNC" },
-  torneado: { href: "/tecnologia#torneado", label: "Ver torneado" },
 };
 
 export function CapabilitiesBento({ capacidades }: CapabilitiesBentoProps) {
@@ -37,59 +27,46 @@ export function CapabilitiesBento({ capacidades }: CapabilitiesBentoProps) {
     .filter((x): x is NonNullable<typeof x> => x != null);
 
   return (
-    <section className="border-y border-border bg-background py-16 sm:py-20">
+    <section
+      className="border-y border-border py-12 sm:py-16"
+      aria-label="Capacidades de maquinado"
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-            Capacidades
-          </p>
-          <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-[2.25rem]">
-            Precisión en cada eje
-          </h2>
-          <p className="mt-4 text-pretty text-muted-foreground">
-            {companyInfo.manufactura.especialidad}{" "}
-            <span className="font-medium text-foreground/85">
-              Sectores: {companyInfo.manufactura.sectoresExperiencia}
-            </span>
-            . Dos líneas recurrentes que apoyamos en planta: mecanizado CNC y
-            torneado de precisión.
-          </p>
-        </div>
+        <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 md:gap-6">
+          {bloques.map(({ cap, icon: Icon }) => (
+            <article
+              key={cap.id}
+              className={cn(
+                "relative isolate flex min-h-full flex-col overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm ring-1 ring-border/45",
+                "dark:bg-card/90 dark:ring-border/60",
+              )}
+            >
+              <div
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_0%_0%,rgba(0,74,153,0.07),transparent_55%)] dark:bg-[radial-gradient(ellipse_80%_60%_at_0%_0%,rgba(92,166,247,0.1),transparent_55%)]"
+                aria-hidden
+              />
 
-        <div className="mt-12 grid grid-cols-1 divide-y divide-border border-y border-border md:mt-14 md:grid-cols-2 md:divide-x md:divide-y-0">
-          {bloques.map(({ cap, icon: Icon }) => {
-            const link = LINKS[cap.id as CapId];
-            return (
-              <Link
-                key={cap.id}
-                href={link?.href ?? "/tecnologia"}
-                className={cn(
-                  "group flex flex-col gap-4 py-8 outline-none transition-colors hover:bg-muted/30 focus-visible:ring-2 focus-visible:ring-primary/35 focus-visible:ring-offset-2 focus-visible:ring-offset-background md:gap-5 md:px-8 md:py-10 lg:px-10",
-                )}
-              >
-                <Icon
-                  className="size-6 shrink-0 text-primary md:size-7"
-                  aria-hidden
-                />
-                <div className="min-w-0 space-y-3">
-                  <h3 className="text-lg font-bold tracking-tight text-foreground">
+              <div className="relative flex flex-1 flex-col gap-5 p-6 sm:p-8">
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-lg border border-primary/20 bg-primary/[0.07] text-primary shadow-sm sm:size-14">
+                  <Icon className="size-6 sm:size-7" strokeWidth={1.75} aria-hidden />
+                </div>
+
+                <div className="min-w-0 space-y-2.5">
+                  <h3 className="text-xl font-bold tracking-tight text-foreground sm:text-[1.35rem]">
                     {cap.titulo}
                   </h3>
-                  <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
+                  <p className="text-pretty text-sm leading-relaxed text-muted-foreground sm:text-[0.9375rem] sm:leading-[1.65]">
                     {cap.descripcion}
                   </p>
-                  <p className="font-mono text-xs font-medium text-primary">
-                    {cap.detalle}
-                  </p>
-                  {link ? (
-                    <span className="inline-flex pt-1 text-sm font-semibold text-primary underline-offset-4 group-hover:underline">
-                      {link.label}
-                    </span>
-                  ) : null}
                 </div>
-              </Link>
-            );
-          })}
+              </div>
+
+              <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-primary/70 via-primary to-primary/50"
+                aria-hidden
+              />
+            </article>
+          ))}
         </div>
       </div>
     </section>

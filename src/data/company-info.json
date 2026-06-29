@@ -64,12 +64,20 @@
     "sectoresExperiencia": "Automotriz, farmacéutico y alimenticio.",
     "procesos": [
       {
-        "titulo": "Fixtures de producción",
-        "descripcion": "Sujeción y referencia para mecanizado y ensamble en serie: localizan la pieza con repetibilidad y ciclos más estables."
+        "titulo": "Manufactura de Herramentales",
+        "descripcion": "Diseño y fabricación de herramentales para mecanizado, ensamble y control de proceso en serie."
       },
       {
-        "titulo": "Gages de inspección",
-        "descripcion": "Galgas y útiles para verificar en taller que la pieza cumple tolerancias e intercambiabilidad según el plano."
+        "titulo": "Manufactura de Gages",
+        "descripcion": "Galgas y útiles de verificación dimensionada para validar piezas según plano y tolerancias acordadas."
+      },
+      {
+        "titulo": "Corte por Hilo (Electroerosionadora)",
+        "descripcion": "EDM por hilo para geometrías complejas, cavidades y perfiles en materiales conductivos con precisión dimensional."
+      },
+      {
+        "titulo": "Rectificado Cilíndrico y Plano",
+        "descripcion": "Acabado dimensional en ejes, superficies planas y perfiles con tolerancias ajustadas y repetibilidad en lote."
       }
     ],
     "materiales": [

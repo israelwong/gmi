@@ -3,7 +3,24 @@ import { Target, Telescope } from "lucide-react";
 
 import { SectionLayout } from "@/components/layout/section-layout";
 import { ClientsMarquee } from "@/components/home/clients-marquee";
+import { NosotrosHero } from "@/components/nosotros/nosotros-hero";
 import { companyInfo } from "@/lib/company-data";
+import { cn } from "@/lib/utils";
+
+const MISION_VISION = [
+  {
+    id: "mision",
+    titulo: "Misión",
+    texto: companyInfo.historia.mision,
+    icon: Target,
+  },
+  {
+    id: "vision",
+    titulo: "Visión",
+    texto: companyInfo.historia.vision,
+    icon: Telescope,
+  },
+] as const;
 
 export const metadata: Metadata = {
   title: "Nosotros",
@@ -14,15 +31,8 @@ export const metadata: Metadata = {
 export default function NosotrosPage() {
   return (
     <>
-      <SectionLayout
-        eyebrow="Trayectoria"
-        title={companyInfo.identidad.nombreOficial}
-        subtitle={companyInfo.historia.resumen}
-        contentClassName="max-w-5xl"
-        headerClassName="mb-5 max-w-none space-y-1.5 sm:mb-6 sm:space-y-2"
-        titleClassName="mb-4 sm:mb-5"
-        subtitleClassName="text-base leading-snug md:text-[1.0625rem] md:leading-relaxed"
-      >
+      <NosotrosHero />
+      <SectionLayout contentClassName="max-w-5xl">
       <div className="space-y-3 text-muted-foreground md:space-y-4">
         {companyInfo.historia.narrativa.map((p, i) => (
           <p key={i} className="leading-relaxed">
@@ -32,45 +42,42 @@ export default function NosotrosPage() {
       </div>
 
       <div className="mt-10 md:mt-12">
-        <div className="grid grid-cols-1 divide-y divide-border border-y border-border md:grid-cols-2 md:divide-x md:divide-y-0">
-          <section className="py-8 md:px-8 md:py-10 lg:px-10">
-            <header className="mb-5 flex items-center gap-3 border-b border-border pb-4">
-              <Target
-                className="size-5 shrink-0 text-primary md:size-6"
+        <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 md:gap-6">
+          {MISION_VISION.map(({ id, titulo, texto, icon: Icon }) => (
+            <article
+              key={id}
+              className={cn(
+                "relative isolate flex min-h-full flex-col overflow-hidden rounded-xl border border-border/80 bg-card shadow-sm ring-1 ring-border/45",
+                "dark:bg-card/90 dark:ring-border/60",
+              )}
+            >
+              <div
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_0%_0%,rgba(0,74,153,0.07),transparent_55%)] dark:bg-[radial-gradient(ellipse_80%_60%_at_0%_0%,rgba(92,166,247,0.1),transparent_55%)]"
                 aria-hidden
               />
-              <h3 className="text-lg font-semibold leading-snug tracking-tight text-foreground md:text-xl">
-                Misión
-              </h3>
-            </header>
-            <p className="max-w-prose text-pretty text-[0.9375rem] leading-relaxed text-muted-foreground md:text-base md:leading-[1.65]">
-              {companyInfo.historia.mision}
-            </p>
-          </section>
-          <section className="py-8 md:px-8 md:py-10 lg:px-10">
-            <header className="mb-5 flex items-center gap-3 border-b border-border pb-4">
-              <Telescope
-                className="size-5 shrink-0 text-primary md:size-6"
-                aria-hidden
-              />
-              <h3 className="text-lg font-semibold leading-snug tracking-tight text-foreground md:text-xl">
-                Visión
-              </h3>
-            </header>
-            <p className="max-w-prose text-pretty text-[0.9375rem] leading-relaxed text-muted-foreground md:text-base md:leading-[1.65]">
-              {companyInfo.historia.vision}
-            </p>
-          </section>
-        </div>
-      </div>
 
-      <div className="pt-8 md:pt-10">
-        <p className="text-lg font-medium leading-snug text-foreground md:leading-relaxed">
-          {companyInfo.confidencialidad.titulo}
-        </p>
-        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground md:mt-3.5">
-          {companyInfo.confidencialidad.texto}
-        </p>
+              <div className="relative flex flex-1 flex-col gap-5 p-6 sm:p-8">
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-lg border border-primary/20 bg-primary/[0.07] text-primary shadow-sm sm:size-14">
+                  <Icon className="size-6 sm:size-7" strokeWidth={1.75} aria-hidden />
+                </div>
+
+                <div className="min-w-0 space-y-2.5">
+                  <h3 className="text-xl font-bold tracking-tight text-foreground sm:text-[1.35rem]">
+                    {titulo}
+                  </h3>
+                  <p className="text-pretty text-sm leading-relaxed text-muted-foreground sm:text-[0.9375rem] sm:leading-[1.65]">
+                    {texto}
+                  </p>
+                </div>
+              </div>
+
+              <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-primary/70 via-primary to-primary/50"
+                aria-hidden
+              />
+            </article>
+          ))}
+        </div>
       </div>
     </SectionLayout>
 

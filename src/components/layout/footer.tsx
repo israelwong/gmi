@@ -22,8 +22,7 @@ export function Footer() {
             </p>
             <p className="text-sm leading-relaxed text-muted-foreground">
               {companyInfo.manufactura.especialidad} Fabricación técnica con
-              enfoque en sectores como {companyInfo.manufactura.sectoresExperiencia}
-              y confidencialidad cuando el proyecto lo requiere.
+              enfoque en sectores como {companyInfo.manufactura.sectoresExperiencia}.
             </p>
           </div>
 

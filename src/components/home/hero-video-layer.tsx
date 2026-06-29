@@ -31,7 +31,7 @@ export function HeroVideoLayer({ videoUrl }: HeroVideoLayerProps) {
         <source src={videoUrl} type="video/mp4" />
       </video>
       <div
-        className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-black/55 to-black/40"
+        className="absolute inset-0 z-[1] bg-gradient-to-t from-black/50 via-black/28 to-black/10"
         aria-hidden
       />
       <div

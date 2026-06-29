@@ -1,70 +1,52 @@
-import { Factory, Layers, ShieldCheck } from "lucide-react";
-
-const POINTS = [
-  {
-    icon: Factory,
-    title: "Parque y cadena técnica",
-    text: "HAAS · Doosan y equipamiento complementario para piezas exigentes.",
-  },
-  {
-    icon: Layers,
-    title: "Series y desarrollo",
-    text: "Lotes recurrentes y prototipos bajo planos y tolerancias acordadas.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Confidencialidad",
-    text: "Acuerdos de confidencialidad en cada proyecto, sin divulgar proceso.",
-  },
-] as const;
+import { ShieldCheck } from "lucide-react";
 
 export function InstitutionalVideo() {
   return (
     <section
-      className="border-b border-border bg-background"
-      aria-labelledby="titulo-trabajo-en-planta"
+      className="border-b border-border py-12 sm:py-16"
+      aria-labelledby="titulo-confidencialidad"
     >
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <header className="max-w-prose space-y-3 text-left">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            Grupo GMI
-          </p>
-          <h2
-            id="titulo-trabajo-en-planta"
-            className="text-balance text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl"
-          >
-            Así trabajamos en planta
-          </h2>
-          <p className="text-pretty text-sm leading-snug text-muted-foreground sm:text-base">
-            Precisión industrial, equipo certero y confidencialidad en cada proyecto.
-          </p>
-        </header>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="relative isolate overflow-hidden rounded-xl border border-primary/25 shadow-lg shadow-primary/10 ring-1 ring-primary/15">
+          <div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#000d1a] via-[#001a33] to-[#002447] dark:from-[#030810] dark:via-[#0a1528] dark:to-[#060f1c]"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_95%_75%_at_15%_10%,rgba(0,130,220,0.22),transparent_58%),radial-gradient(ellipse_85%_65%_at_100%_100%,rgba(0,25,55,0.5),transparent_52%)] dark:bg-[radial-gradient(ellipse_90%_70%_at_12%_8%,rgba(92,166,247,0.18),transparent_55%),radial-gradient(ellipse_80%_55%_at_100%_95%,rgba(0,0,0,0.35),transparent_50%)]"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.1] mix-blend-overlay [background-image:repeating-linear-gradient(105deg,transparent_0px,transparent_12px,rgba(255,255,255,0.04)_12px,rgba(255,255,255,0.04)_13px)] dark:opacity-[0.07]"
+            aria-hidden
+          />
 
-        <ul
-          className="mt-12 grid list-none grid-cols-1 divide-y divide-border border-y border-border md:grid-cols-3 md:divide-x md:divide-y-0 lg:mt-14"
-          role="list"
-        >
-          {POINTS.map(({ icon: Icon, title, text }) => (
-            <li
-              key={title}
-              className="flex gap-4 py-8 md:flex-col md:gap-5 md:px-6 md:py-10 lg:gap-6"
-            >
-              <Icon
-                className="mt-0.5 size-5 shrink-0 text-primary md:mt-0 md:size-6"
+          <div className="relative flex flex-col gap-5 px-6 py-8 text-primary-foreground sm:px-8 sm:py-10 md:flex-row md:items-center md:gap-8 lg:px-10 lg:py-12">
+            <div className="flex size-14 shrink-0 items-center justify-center rounded-lg border border-white/20 bg-white/10 shadow-sm backdrop-blur-[2px] sm:size-16">
+              <ShieldCheck
+                className="size-7 sm:size-8"
                 strokeWidth={1.75}
                 aria-hidden
               />
-              <div className="min-w-0 space-y-1.5">
-                <h3 className="text-base font-semibold leading-snug text-foreground">
-                  {title}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {text}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
+            </div>
+            <div className="min-w-0 space-y-2.5">
+              <h2
+                id="titulo-confidencialidad"
+                className="text-balance text-2xl font-bold leading-tight tracking-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.35)] sm:text-3xl"
+              >
+                Confidencialidad
+              </h2>
+              <p className="max-w-2xl text-pretty text-base leading-relaxed text-primary-foreground/92 sm:text-lg">
+                Acuerdos de confidencialidad en cada proyecto.
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-primary/90 via-primary to-primary/70"
+            aria-hidden
+          />
+        </div>
       </div>
     </section>
   );

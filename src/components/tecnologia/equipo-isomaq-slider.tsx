@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 import { A11y, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -12,93 +13,110 @@ import "swiper/css/pagination";
 import "./equipo-swiper.css";
 
 const EQUIPO_IMAGES_BASE =
-  "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/equipo";
+  "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/tecnologia-geleria";
 
 const EQUIPO_SLIDE_FILES = [
-  "equipo-maquina-702s-isomaq.webp",
-  "equipo-maquina-2100b-isomaq.webp",
-  "equipo-maquina-leo1600-isomaq.webp",
-  "equipo-maquina-pumatt1800sy-isomaq.webp",
-  "equipo-maquina-st10-isomaq.webp",
-  "equipo-maquina-tmp1-isomaq.webp",
-  "equipo-maquina-vf2-isomaq.webp",
-  "equipo-maquina-vf3-isomaq.webp",
+  "322.jpg",
+  "284.jpg",
+  "255.jpg",
+  "215.jpg",
+  "194.jpg",
+  "171.jpg",
+  "161-v2.jpeg",
+  "109.jpg",
+  "100.jpg",
+  "63.jpg",
+  "53.jpg",
+  "51.jpg",
 ] as const;
 
-const EQUIPO_SLIDE_ALTS: Record<string, string> = {
-  "equipo-maquina-702s-isomaq.webp":
-    "Centro de maquinado DN Solutions 702S · imagen de referencia comercial",
-  "equipo-maquina-2100b-isomaq.webp":
-    "Torno CNC LYNX 2100B · imagen de referencia comercial",
-  "equipo-maquina-leo1600-isomaq.webp":
-    "Equipo LEO 1600 · imagen de referencia comercial",
-  "equipo-maquina-pumatt1800sy-isomaq.webp":
-    "Torno PUMA TT 1800 SY · imagen de referencia comercial",
-  "equipo-maquina-st10-isomaq.webp":
-    "Torno CNC Haas ST-10 · imagen de referencia comercial",
-  "equipo-maquina-tmp1-isomaq.webp":
-    "Equipo de taller referencia TMP-1 · imagen comercial",
-  "equipo-maquina-vf2-isomaq.webp":
-    "Centro vertical Haas VF-2 · imagen de referencia comercial",
-  "equipo-maquina-vf3-isomaq.webp":
-    "Centro vertical Haas VF-3 · imagen de referencia comercial",
-};
-
-const slides = EQUIPO_SLIDE_FILES.map((file) => ({
+const slides = EQUIPO_SLIDE_FILES.map((file, i) => ({
   src: `${EQUIPO_IMAGES_BASE}/${file}`,
-  alt:
-    EQUIPO_SLIDE_ALTS[file] ??
-    `Equipo de taller · ${file.replace(/\.webp$/, "")}`,
+  alt: `Equipo en planta GMI · fotografía ${i + 1}`,
 }));
+
+function useImageAspectRatios(urls: string[]) {
+  const [ratios, setRatios] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    let cancelled = false;
+
+    urls.forEach((src) => {
+      const img = new window.Image();
+      img.onload = () => {
+        if (
+          cancelled ||
+          img.naturalWidth <= 0 ||
+          img.naturalHeight <= 0
+        ) {
+          return;
+        }
+        const ratio = img.naturalWidth / img.naturalHeight;
+        setRatios((prev) => (prev[src] ? prev : { ...prev, [src]: ratio }));
+      };
+      img.src = src;
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [urls]);
+
+  return ratios;
+}
 
 export type EquipoIsomaqSliderProps = {
   className?: string;
 };
 
 export function EquipoIsomaqSlider({ className }: EquipoIsomaqSliderProps) {
+  const urls = useMemo(() => slides.map((s) => s.src), []);
+  const aspectRatios = useImageAspectRatios(urls);
+
   if (slides.length === 0) return null;
 
   return (
     <div
       className={cn(
-        "equipo-swiper-root relative overflow-hidden bg-white pb-10 pt-2 shadow-[inset_0_1px_0_0_rgba(15,23,42,0.06)] md:pb-12 md:pt-4",
+        "equipo-swiper-root relative overflow-hidden bg-muted/20 pb-10 pt-2 shadow-[inset_0_1px_0_0_rgba(15,23,42,0.06)] md:pb-12 md:pt-4",
         className,
       )}
     >
       <Swiper
         modules={[Navigation, Pagination, A11y]}
-        slidesPerView={1}
+        slidesPerView="auto"
         spaceBetween={0}
-        breakpoints={{
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 0,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 0,
-          },
-        }}
+        centeredSlides={false}
         loop={slides.length >= 3}
         navigation
         pagination={{ clickable: true, dynamicBullets: true }}
         className="relative z-[1] w-full"
         watchOverflow
       >
-        {slides.map((s, i) => (
-          <SwiperSlide key={s.src} className="!h-auto">
-            <div className="relative aspect-[5/4] w-full border-x border-border/70 sm:aspect-[4/3] lg:aspect-[16/11]">
-              <Image
-                src={s.src}
-                alt={s.alt}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-contain object-center"
-                priority={i === 0}
-              />
-            </div>
-          </SwiperSlide>
-        ))}
+        {slides.map((s, i) => {
+          const ratio = aspectRatios[s.src];
+
+          return (
+            <SwiperSlide key={s.src} className="equipo-swiper-slide !w-auto">
+              <div
+                className={cn(
+                  "equipo-swiper-frame relative overflow-hidden border-x border-border/70 bg-muted/30",
+                  !ratio && "w-[min(85vw,420px)]",
+                )}
+                style={ratio ? { aspectRatio: ratio } : { aspectRatio: "4 / 3" }}
+              >
+                <Image
+                  src={s.src}
+                  alt={s.alt}
+                  fill
+                  sizes="(max-width: 640px) 85vw, 420px"
+                  className="object-cover object-center"
+                  priority={i === 0}
+                />
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );
