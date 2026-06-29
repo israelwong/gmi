@@ -26,7 +26,7 @@ export function GmiLogo({ className }: GmiLogoProps) {
         width={160}
         height={40}
         priority
-        className="h-7 w-auto shrink-0"
+        className="h-7 w-auto shrink-0 dark:brightness-0 dark:invert"
         style={{ width: "auto" }}
         aria-hidden
       />

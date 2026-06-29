@@ -8,17 +8,7 @@ function buildTecnologiaSlides(): SplitHeroSlide[] {
   const m = companyInfo.manufactura;
   const fallbackSrc = m.materiales[0]?.imagenes?.[0]?.url ?? "";
 
-  const intro: SplitHeroSlide = {
-    image: {
-      src: fallbackSrc,
-      alt: "Capacidades y taller GMI",
-    },
-    title: "Capacidades y tecnología",
-    description: `${m.especialidad} Sectores: ${m.sectoresExperiencia}`,
-    highlights: [...m.procesos.map((p) => p.titulo), ...companyInfo.softwareCadCam],
-  };
-
-  const materiales = m.materiales.map((mat) => {
+  return m.materiales.map((mat) => {
     const img = mat.imagenes?.[0];
     return {
       image: {
@@ -30,8 +20,6 @@ function buildTecnologiaSlides(): SplitHeroSlide[] {
       highlights: companyInfo.capacidades.map((c) => c.titulo),
     } satisfies SplitHeroSlide;
   });
-
-  return [intro, ...materiales];
 }
 
 export function TecnologiaHero() {
