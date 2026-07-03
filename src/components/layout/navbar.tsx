@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-import { GmiLogo } from "@/components/brand/gmi-logo";
+import { GmiAltMark, GmiLogo } from "@/components/brand/gmi-logo";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -56,6 +56,7 @@ export function Navbar() {
             <Link href="/contacto">Contacto</Link>
           </Button>
           <ThemeToggle />
+          <GmiAltMark />
           <button
             type="button"
             className="inline-flex items-center justify-center rounded-md border border-border bg-background p-2 text-foreground shadow-sm md:hidden"

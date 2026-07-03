@@ -15,7 +15,7 @@ export default function ContactoPage() {
     <SectionLayout
       eyebrow="Estamos para ayudarle"
       title="Solicitar cotización de proyecto especial"
-      subtitle="Describa su pieza, material, cantidades y requisitos de confidencialidad. Un ingeniero revisará su solicitud; el envío es seguro vía Resend."
+      subtitle="Describa su pieza, material y cantidades. Un ingeniero revisará su solicitud; el envío es seguro vía Resend."
       contentClassName="max-w-7xl"
     >
       <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-2 md:gap-x-10 md:gap-y-0 lg:gap-x-14">

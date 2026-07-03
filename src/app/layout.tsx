@@ -18,6 +18,9 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const ISOTIPO_URL =
+  "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/logos/isotipo_gmi.svg";
+
 export const metadata: Metadata = {
   title: {
     default: "Grupo GMI — Ingeniería y soluciones industriales",
@@ -25,6 +28,11 @@ export const metadata: Metadata = {
   },
   description:
     "Grupo GMI: maquinados industriales de precisión, parque HAAS y Doosan, y proyectos bajo confidencialidad desde 1985.",
+  icons: {
+    icon: [{ url: ISOTIPO_URL, type: "image/svg+xml" }],
+    shortcut: ISOTIPO_URL,
+    apple: ISOTIPO_URL,
+  },
 };
 
 export default function RootLayout({
