@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-import { GmiAltMark, GmiLogo } from "@/components/brand/gmi-logo";
+import { GmiLogo } from "@/components/brand/gmi-logo";
+import { LogoIgm } from "@/components/brand/logo-igm";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -51,12 +52,12 @@ export function Navbar() {
           <Button
             asChild
             size="sm"
-            className="shrink-0 px-3 text-xs font-semibold sm:text-sm"
+            className="hidden shrink-0 px-3 text-xs font-semibold md:inline-flex sm:text-sm"
           >
             <Link href="/contacto">Contacto</Link>
           </Button>
-          <ThemeToggle />
-          <GmiAltMark />
+          <ThemeToggle className="hidden md:inline-flex" />
+          <LogoIgm />
           <button
             type="button"
             className="inline-flex items-center justify-center rounded-md border border-border bg-background p-2 text-foreground shadow-sm md:hidden"
@@ -98,6 +99,20 @@ export function Navbar() {
               );
             })}
           </nav>
+
+          <div className="mt-3 flex flex-col gap-3 border-t border-border pt-3">
+            <Button asChild className="w-full" size="sm">
+              <Link href="/contacto" onClick={() => setOpen(false)}>
+                Contacto
+              </Link>
+            </Button>
+            <div className="flex items-center justify-between rounded-md border border-border bg-muted/30 px-3 py-2">
+              <span className="text-sm font-medium text-foreground">
+                Apariencia
+              </span>
+              <ThemeToggle />
+            </div>
+          </div>
         </div>
       )}
     </header>

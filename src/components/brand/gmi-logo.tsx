@@ -10,9 +10,6 @@ type GmiLogoProps = {
 const GMI_LOGO_URL =
   "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/logos/gmi.svg";
 
-const GMI_ALT_LOGO_URL =
-  "https://fhwfdwrrnwkbnwxabkcq.supabase.co/storage/v1/object/public/Grupo%20GMI/logos/gmi-alt.svg";
-
 export function GmiLogo({ className }: GmiLogoProps) {
   return (
     <Link
@@ -42,21 +39,5 @@ export function GmiLogo({ className }: GmiLogoProps) {
         </span>
       </span>
     </Link>
-  );
-}
-
-export function GmiAltMark({ className }: GmiLogoProps) {
-  return (
-    <Image
-      src={GMI_ALT_LOGO_URL}
-      alt=""
-      width={36}
-      height={36}
-      className={cn(
-        "h-9 w-9 shrink-0 object-contain opacity-90 dark:brightness-0 dark:invert",
-        className,
-      )}
-      aria-hidden
-    />
   );
 }
